@@ -5,10 +5,10 @@ const app = express();
 const cors = require("cors");
 
 const db = mysql.createPool({
-	host: "bignn7lh7whughtyvp6m-mysql.services.clever-cloud.com",
-	user: "uc1vpfemcoa0gcdj",
+	host: "bclzwse0qhodqhmzbbub-mysql.services.clever-cloud.com",
+	user: "uf6oxcgju3bnpx5b",
 	password: process.env.PASSWORD,
-	database: "bignn7lh7whughtyvp6m",
+	database: "bclzwse0qhodqhmzbbub",
 	charset: "utf8mb4",
 	multipleStatements: true,
 });
@@ -86,7 +86,6 @@ app.post("/users", async (req, res) => {
 	let password = post[2].password;
 
 	//const salt = await bcrypt.genSalt();
-	password = await bcrypt.hash(password, 10);
 
 	const sql = `
 		INSERT INTO users(email, username, user_password) VALUES( ?, ?, ?);

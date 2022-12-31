@@ -2,6 +2,14 @@
 
 import { initializeApp } from "firebase/app";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import {
+	getAuth,
+	GoogleAuthProvider,
+	signInWithPopup,
+	signInWithRedirect,
+	onAuthStateChanged,
+	signOut,
+} from "firebase/auth";
 
 const firebaseConfig = {
 	apiKey: process.env.NEXT_PUBLIC_API_KEY,
@@ -22,5 +30,17 @@ const firebaseConfig = {
 // Initialize Firebase
 
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-export { getStorage, ref, app, uploadBytes };
+export {
+	getStorage,
+	ref,
+	app,
+	uploadBytes,
+	auth,
+	GoogleAuthProvider,
+	signInWithPopup,
+	signInWithRedirect,
+	onAuthStateChanged,
+	signOut,
+};

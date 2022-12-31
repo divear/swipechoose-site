@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
+import Nav from "../components/Nav";
 
 export default function Home() {
 	const [index, setIndex] = useState(0);
@@ -21,8 +22,15 @@ export default function Home() {
 			  );
 	}
 
+	useEffect(() => {
+		if (!localStorage.getItem("uid")) {
+			window.location.href = "signin";
+		}
+	}, []);
+
 	return (
 		<div className="content">
+			<Nav />
 			<Meta title="Swipechoose" />
 			<div className="pics">
 				<img
