@@ -29,6 +29,8 @@ function Signin() {
 	useEffect(() => {
 		if (!user) return;
 		localStorage.setItem("uid", user?.uid);
+		localStorage.setItem("username", user?.displayName);
+		localStorage.setItem("pfp", user?.photoURL);
 		window.location.href = "/";
 	}, [user]);
 

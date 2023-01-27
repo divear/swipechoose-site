@@ -105,3 +105,8 @@ button {
 	display: flex;
 	justify-items: center;
 }
+
+.logo {
+	position: fixed;
+	left: 1%;
+}
