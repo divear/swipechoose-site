@@ -53,18 +53,19 @@ app.get("/posts/:id", (req, res) => {
 		"Origin, X-Requested-With, Content-Type, Accept"
 	);
 	const sql = `
+
 		SELECT
 		posts.id,
-		posts.body, 
-		posts.video_id,
-		DATE_FORMAT(posts.datum, '%d/%m/%Y %H:%i') AS posted_date,
+		posts.datum,
+		posts.title,
+		posts.photo_url,
 		users.user_id AS user_id,
 		users.username AS username,
 		users.pfp AS pfp,
 		users.email AS email
 		FROM posts 
 		LEFT JOIN users ON posts.user_id = users.user_id
-		WHERE posts.id = ?
+		WHERE id = ?;
 		`;
 	db.query(sql, [req.params.id], (err, result) => {
 		if (err) throw err;
@@ -79,19 +80,14 @@ app.post("/users", async (req, res) => {
 		"Access-Control-Allow-Headers",
 		"Origin, X-Requested-With, Content-Type, Accept"
 	);
-	//hash
 	const post = req.body;
 
-	let password = post[2].password;
-
-	//const salt = await bcrypt.genSalt();
-
 	const sql = `
-		INSERT INTO users(email, username, user_password) VALUES( ?, ?, ?);
+		INSERT INTO users(email, username, following, pfp) VALUES( ?, ?, ?, ?);
 	`;
 	db.query(
 		sql,
-		[post[0].email, post[1].username, password],
+		[post[0].email, post[1].username, post[2].follow, post[3].pfp],
 		(err, result) => {
 			if (err) res.send(err);
 			res.send(result);
@@ -124,14 +120,14 @@ app.post("/posts", async (req, res) => {
 
 		const reqe = req.body;
 
-		const sql = `INSERT INTO posts(body, datum, user_id, video_id) VALUES(?, now(), ?, ?);`;
+		const sql = `INSERT INTO posts(datum, user_id, title, photo_url) VALUES(now(), ?, ?, ?);`;
 
 		console.log(reqe);
 		console.log(reqe[2].link);
 
 		db.query(
 			sql,
-			[reqe[1].body, reqe[0].id + 1, reqe[2].link],
+			[reqe[0].id + 1, reqe[2].link, reqe[3].url],
 			(err, result) => {
 				if (err) throw err.message;
 				res.send(result);
@@ -142,63 +138,6 @@ app.post("/posts", async (req, res) => {
 	}
 });
 
-//update a user
-
-app.put("/users/:id", async (req, res) => {
-	try {
-		const { id } = req.params;
-		const respo = req.body;
-		console.log([respo[0].username, respo[1].imgLink, id]);
-
-		const updateTodo = await db.query(
-			`UPDATE users SET username = ?, pfp = ? WHERE user_id = ?`,
-			[respo[0].username, respo[1].imgLink, id]
-		);
-
-		res.json("user was updated");
-	} catch (error) {
-		console.log(error);
-	}
-});
-
-//check if login is correct
-app.post("/users-login/:email", async (req, res) => {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header(
-		"Access-Control-Allow-Headers",
-		"Origin, X-Requested-With, Content-Type, Accept"
-	);
-
-	const reqe = req.body;
-
-	const email = req.params.email;
-
-	let password = reqe[0].password;
-
-	const sql = `
-		SELECT * FROM users
-		WHERE email = ?
-	`;
-	db.query(sql, [email], async (err, result) => {
-		if (err) throw err;
-		console.log(result);
-		if (!result.lenght) {
-			res.send(["wrong email"]);
-			return;
-		}
-
-		const user_password = result[0].user_password;
-		console.log([user_password, password]);
-
-		if (user_password === password) {
-			res.send(result);
-			console.log("users login");
-			return;
-		}
-		console.log("login failed");
-		res.send([]);
-	});
-});
 app.delete("/posts/:id", async (req, res) => {
 	try {
 		const { id } = req.params;
