@@ -27,10 +27,9 @@ app.get("/posts", (req, res) => {
 	const sql = `
 		SELECT
 		posts.id,
-		posts.body, 
-		posts.video_id,
-		DATE_FORMAT(posts.datum, '%d/%m/%Y %H:%i') AS posted_date,
 		posts.datum,
+		posts.title,
+		posts.photo_url,
 		users.user_id AS user_id,
 		users.username AS username,
 		users.pfp AS pfp,
