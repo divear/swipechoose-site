@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "nodemon server.ts"
+		"dev": "nodemon server.ts",
+		"start": "node server.ts"
 	},
 	"author": "",
 	"license": "ISC",
@@ -12,6 +13,7 @@
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
-		"mysql": "^2.18.1"
+		"mysql": "^2.18.1",
+		"typescript": "^4.9.4"
 	}
 }

@@ -7,6 +7,7 @@ import {
 	signOut,
 } from "../components/firebase";
 import Meta from "../components/Meta";
+const serverDomain = process.env.SERVERDOMAIN;
 
 function Signin() {
 	const [user, setUser] = useState<any>();
@@ -23,15 +24,26 @@ function Signin() {
 			unsubscribe();
 		};
 	}, []);
-	function logOut() {
-		signOut(auth);
-	}
 	useEffect(() => {
 		if (!user) return;
+		(async function () {
+			const Rpfp = user?.photoURL;
+			const Rusername = user?.displayName;
+			const id = user?.uid;
+			console.log(user);
+
+			const arr = [Rusername, Rpfp];
+			const response = await fetch(`${serverDomain}users/${id}`, {
+				method: "PUT",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify(arr),
+			});
+			console.log(response);
+		})();
 		localStorage.setItem("uid", user?.uid);
 		localStorage.setItem("username", user?.displayName);
 		localStorage.setItem("pfp", user?.photoURL);
-		window.location.href = "/";
+		// window.location.href = "/";
 	}, [user]);
 
 	return (
