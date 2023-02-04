@@ -81,18 +81,15 @@ app.post("/users", async (req, res) => {
 		"Origin, X-Requested-With, Content-Type, Accept"
 	);
 	const post = req.body;
+	console.log(post);
 
 	const sql = `
-		INSERT INTO users(email, username, following, pfp) VALUES( ?, ?, ?, ?);
+		INSERT INTO users(email, username, pfp, following) VALUES( ?, ?, ?, ?);
 	`;
-	db.query(
-		sql,
-		[post[0].email, post[1].username, post[2].follow, post[3].pfp],
-		(err, result) => {
-			if (err) res.send(err);
-			res.send(result);
-		}
-	);
+	db.query(sql, [post[0], post[1], post[2], post[3]], (err, result) => {
+		if (err) res.send(err);
+		res.send(result);
+	});
 });
 
 //get number of users

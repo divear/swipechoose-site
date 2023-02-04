@@ -7,9 +7,12 @@ import {
 	signOut,
 } from "../components/firebase";
 import Meta from "../components/Meta";
-const serverDomain = process.env.SERVERDOMAIN;
+const serverDomain =
+	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
 
 function Signin() {
+	console.log(serverDomain);
+
 	const [user, setUser] = useState<any>();
 
 	function signin() {
@@ -27,14 +30,16 @@ function Signin() {
 	useEffect(() => {
 		if (!user) return;
 		(async function () {
+			const Remail = user?.email;
 			const Rpfp = user?.photoURL;
 			const Rusername = user?.displayName;
-			const id = user?.uid;
+			const Rfollow = "[0, 0]";
+			// const id = user?.uid;
 			console.log(user);
 
-			const arr = [Rusername, Rpfp];
-			const response = await fetch(`${serverDomain}users/${id}`, {
-				method: "PUT",
+			const arr = [Remail, Rusername, Rpfp, Rfollow];
+			const response = await fetch(`${serverDomain}users`, {
+				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(arr),
 			});
