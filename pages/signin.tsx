@@ -48,7 +48,7 @@ function Signin() {
 		localStorage.setItem("uid", user?.uid);
 		localStorage.setItem("username", user?.displayName);
 		localStorage.setItem("pfp", user?.photoURL);
-		// window.location.href = "/";
+		window.location.href = "/";
 	}, [user]);
 
 	return (
