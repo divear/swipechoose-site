@@ -1,3 +1,8 @@
+:root {
+	--fr: white;
+	--bg: blue;
+	--sec: rgb(215, 95, 9);
+}
 html,
 body {
 	padding: 0;
@@ -88,7 +93,18 @@ a {
 button {
 	cursor: pointer;
 	font-size: 1rem;
+	border: none;
+	background-color: var(--sec);
+	font-size: 3rem;
+	border-radius: 0.4vw;
+	padding: 0.5vw;
 }
+button:hover {
+	border-radius: 0.2vw;
+	padding: 0.51vw;
+	filter: grayscale(0.2);
+}
+
 .bigText {
 	font-size: 5rem;
 	text-align: center;
