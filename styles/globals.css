@@ -110,3 +110,6 @@ button {
 	position: fixed;
 	left: 1%;
 }
+.pics > * {
+	background-color: white;
+}
