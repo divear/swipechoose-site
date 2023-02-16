@@ -39,7 +39,10 @@ export default function Home() {
 			<div className="content">
 				<Nav />
 				<Meta title="Swipechoose" />
-				<button onClick={() => (window.location.href = "/novy")}>
+				<button
+					className="new"
+					onClick={() => (window.location.href = "/novy")}
+				>
 					Post new
 				</button>
 				<div className="pics">

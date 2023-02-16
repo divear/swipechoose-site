@@ -129,3 +129,18 @@ button:hover {
 .pics > * {
 	background-color: white;
 }
+.new {
+	margin: -2vw 0 0 5vw;
+}
+.newImgForm {
+	font-size: 1.5rem;
+	width: 30vw;
+}
+.newImgForm * {
+	margin: 1vw;
+}
+
+.newImgForm input {
+	width: 30vw;
+	font-size: 2rem;
+}

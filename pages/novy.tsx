@@ -7,9 +7,15 @@ function Novy() {
 		<div className="content">
 			<Nav />
 			<Meta title="Swipechoose" />
-			<h1>post new </h1>
-			<input type="file" />
-			<button>post</button>
+			<h1>Post a new image</h1>
+			<form className="newImgForm" action="">
+				<label htmlFor="title">Picture title</label>
+				<input type="text" id="title" placeholder="A cool picture" />
+
+				<label htmlFor="pic">Picture source:</label>
+				<input id="pic" type="file" />
+				<button type="submit">post</button>
+			</form>
 		</div>
 	);
 }
