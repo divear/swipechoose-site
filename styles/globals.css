@@ -144,3 +144,8 @@ button:hover {
 	width: 30vw;
 	font-size: 2rem;
 }
+.footer {
+	position: fixed;
+	bottom: 1%;
+	right: 1%;
+}

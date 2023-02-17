@@ -3,12 +3,16 @@ import Meta from "../components/Meta";
 import Nav from "../components/Nav";
 
 function Novy() {
+	async function submit(e: any) {
+		e.preventDefault();
+		console.log("submit");
+	}
 	return (
 		<div className="content">
 			<Nav />
 			<Meta title="Swipechoose" />
 			<h1>Post a new image</h1>
-			<form className="newImgForm" action="">
+			<form onSubmit={submit} className="newImgForm" action="">
 				<label htmlFor="title">Picture title</label>
 				<input type="text" id="title" placeholder="A cool picture" />
 
