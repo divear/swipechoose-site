@@ -34,7 +34,6 @@ export default function Home() {
 	}, []);
 
 	if (data) {
-		console.log(data[0].photo_url);
 		return (
 			<div className="content">
 				<Nav />
