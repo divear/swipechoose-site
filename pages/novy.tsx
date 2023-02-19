@@ -5,25 +5,32 @@ import { ref, getStorage, uploadBytes } from "../components/firebase";
 
 const serverDomain =
 	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
+const storage = getStorage();
 
 function Novy() {
 	const [title, setTitle] = useState("");
 	const [img, setImg] = useState<any>();
 	const [error, setError] = useState("");
+	const [imgLink, setImgLink] = useState("");
 
 	function submit(e: any) {
 		e.preventDefault();
 		console.log("submit");
+
 		if (!title && !img) {
 			setError("Email and password are mandatory");
 			return;
 		}
+		console.log(imgLink);
+
 		const spaceRef = ref(storage, `imgs/${title}.png`);
 		uploadBytes(spaceRef, img).then(async (snapshot) => {
 			try {
+				console.log(img);
+
 				const Rid = localStorage.getItem("uid");
 				const Rtitle = { title };
-				const Rimg = { img };
+				const Rimg = { imgLink };
 
 				const arr = [Rid, Rtitle, Rimg];
 				console.log(arr);
@@ -40,6 +47,12 @@ function Novy() {
 				console.log(error);
 			}
 		});
+	}
+	function changeFile(e: any) {
+		setImg(e.target.files[0]);
+		setImgLink(
+			`https://firebasestorage.googleapis.com/v0/b/swipechoose-55985.appspot.com/o/${e.target.files[0].name}?alt=media`
+		);
 	}
 	return (
 		<div className="content">
@@ -58,8 +71,8 @@ function Novy() {
 
 				<label htmlFor="pic">Picture source:</label>
 				<input
-					accept="img/*"
-					onChange={(e) => setImg(e)}
+					onChange={(e) => changeFile(e)}
+					accept="image/*"
 					id="pic"
 					type="file"
 				/>
