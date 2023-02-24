@@ -124,7 +124,7 @@ app.post("/posts", async (req, res) => {
 
 		db.query(
 			sql,
-			[reqe[0].id + 1, reqe[2].link, reqe[3].url],
+			[Date.now(), reqe[0].id, reqe[1].title, reqe[2].img],
 			(err, result) => {
 				if (err) throw err.message;
 				res.send(result);

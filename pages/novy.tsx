@@ -23,12 +23,15 @@ function Novy() {
 		}
 		console.log(imgLink);
 
-		const spaceRef = ref(storage, `imgs/${title}.png`);
+		console.log(img.name);
+
+		const spaceRef = ref(storage, `imgs/${img.name}`);
 		uploadBytes(spaceRef, img).then(async (snapshot) => {
 			try {
 				console.log(img);
+				console.log(snapshot);
 
-				const Rid = localStorage.getItem("uid");
+				const Rid = { id: localStorage.getItem("uid") };
 				const Rtitle = { title };
 				const Rimg = { imgLink };
 
@@ -51,7 +54,7 @@ function Novy() {
 	function changeFile(e: any) {
 		setImg(e.target.files[0]);
 		setImgLink(
-			`https://firebasestorage.googleapis.com/v0/b/swipechoose-55985.appspot.com/o/${e.target.files[0].name}?alt=media`
+			`https://firebasestorage.googleapis.com/v0/b/swipechoose-55985.appspot.com/o/imgs%2F${e.target.files[0].name}?alt=media`
 		);
 	}
 	return (
