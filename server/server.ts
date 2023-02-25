@@ -101,11 +101,13 @@ app.get("/users-number", (req, res) => {
 	);
 	const sql = `
 		SELECT
-		COUNT(*) AS id
+		MAX(user_id) AS count
 		FROM users;`;
 	db.query(sql, (err, result) => {
 		if (err) throw err.message;
 		res.send(result);
+		console.log(result);
+
 		console.log("users number");
 	});
 });
@@ -113,18 +115,18 @@ app.get("/users-number", (req, res) => {
 //create a post
 app.post("/posts", async (req, res) => {
 	try {
-		console.log("post");
+		console.log("post a post");
 
 		const reqe = req.body;
 
 		const sql = `INSERT INTO posts(datum, user_id, title, photo_url) VALUES(now(), ?, ?, ?);`;
 
-		console.log(reqe);
-		console.log(reqe[2].link);
+		const userid = reqe[0].id;
+		console.log(userid);
 
 		db.query(
 			sql,
-			[Date.now(), reqe[0].id, reqe[1].title, reqe[2].img],
+			[Date.now(), userid, reqe[1].title, reqe[2].img],
 			(err, result) => {
 				if (err) throw err.message;
 				res.send(result);

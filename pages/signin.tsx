@@ -39,8 +39,8 @@ function Signin() {
 
 			const userCountR = await fetch(`${serverDomain}users-number`);
 			const userCount = await userCountR.json();
-			console.log(userCount[0].id);
-			localStorage.setItem("count", userCount[0].id);
+			console.log(userCount[0].count);
+			localStorage.setItem("count", userCount[0].count);
 
 			const arr = [Remail, Rusername, Rpfp, Rfollow];
 			const response = await fetch(`${serverDomain}users`, {
@@ -53,7 +53,7 @@ function Signin() {
 		localStorage.setItem("uid", user?.uid);
 		localStorage.setItem("username", user?.displayName);
 		localStorage.setItem("pfp", user?.photoURL);
-		// window.location.href = "/";
+		window.location.href = "/";
 	}, [user]);
 
 	return (
