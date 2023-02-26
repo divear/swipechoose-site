@@ -14,6 +14,7 @@ function Signin() {
 	console.log(serverDomain);
 
 	const [user, setUser] = useState<any>();
+	const [count, setCount] = useState(0);
 
 	function signin() {
 		const provider = new GoogleAuthProvider();
@@ -41,6 +42,7 @@ function Signin() {
 			const userCount = await userCountR.json();
 			console.log(userCount[0].count);
 			localStorage.setItem("count", userCount[0].count);
+			setCount(userCount[0].count);
 
 			const arr = [Remail, Rusername, Rpfp, Rfollow];
 			const response = await fetch(`${serverDomain}users`, {
@@ -49,11 +51,12 @@ function Signin() {
 				body: JSON.stringify(arr),
 			});
 			console.log(response);
+			window.location.href = "/";
 		})();
 		localStorage.setItem("uid", user?.uid);
 		localStorage.setItem("username", user?.displayName);
 		localStorage.setItem("pfp", user?.photoURL);
-		window.location.href = "/";
+		console.log("set stor");
 	}, [user]);
 
 	return (
@@ -71,6 +74,7 @@ function Signin() {
 			<h1>{user?.email}</h1>
 			<h1>{user?.photoURL}</h1>
 			<h1>{user?.uid}</h1>
+			<h1>{count}</h1>
 		</div>
 	);
 }
