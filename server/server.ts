@@ -122,11 +122,12 @@ app.post("/posts", async (req, res) => {
 		const sql = `INSERT INTO posts(datum, user_id, title, photo_url) VALUES(now(), ?, ?, ?);`;
 
 		const userid = reqe[0].id;
-		console.log(userid);
+		console.log(reqe);
+		console.log([userid, reqe[1].title, reqe[2].imgLink]);
 
 		db.query(
 			sql,
-			[Date.now(), userid, reqe[1].title, reqe[2].img],
+			[userid, reqe[1].title, reqe[2].imgLink],
 			(err, result) => {
 				if (err) throw err.message;
 				res.send(result);
