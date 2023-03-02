@@ -45,7 +45,7 @@ function Novy() {
 				});
 				console.log("posted");
 
-				window.location.reload();
+				window.location.href = "/";
 			} catch (error) {
 				console.log(error);
 			}
