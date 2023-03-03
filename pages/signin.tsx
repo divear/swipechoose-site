@@ -63,7 +63,7 @@ function Signin() {
 		<div>
 			<Meta title={"Sign in"} />
 			<h1 className="bigText">
-				Let's start with making a Swipechoose account
+				Let&#39;s start with making a Swipechoose account
 			</h1>
 			<div className="signin">
 				<button className="bigButton" onClick={signin}>

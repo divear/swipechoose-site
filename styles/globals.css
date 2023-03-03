@@ -1,6 +1,7 @@
 :root {
 	--fr: white;
-	--bg: blue;
+	--bg: rgb(35, 33, 25);
+	--secbg: rgb(58, 56, 50);
 	--sec: rgb(215, 95, 9);
 }
 html,
@@ -25,8 +26,8 @@ a {
 		color-scheme: dark;
 	}
 	body {
-		color: white;
-		background: black;
+		color: var(--fr);
+		background: var(--bg);
 	}
 }
 
@@ -62,23 +63,27 @@ a {
 	margin: 0.8vw;
 }
 .pickImage {
+	margin: 7vh 0 0 0 !important;
 	border-radius: 1vw;
 	position: fixed;
-	width: 38%;
+	width: 35%;
 	margin: 0 2vw;
 }
 .pickImage:hover {
 	cursor: pointer;
 	position: fixed;
 	animation: widen 0.5s;
-	transform: scale(1.05);
+	transform: scale(1.08);
+	filter: contrast(1.05);
 }
 @keyframes widen {
 	from {
 		transform: scale(1);
+		filter: contrast(1);
 	}
 	to {
-		transform: scale(1.05);
+		transform: scale(1.08);
+		filter: contrast(1.05);
 	}
 }
 .rightImage {
@@ -88,7 +93,7 @@ a {
 	left: 5%;
 }
 .pics {
-	width: 95vw;
+	width: 90vw;
 }
 button {
 	cursor: pointer;
@@ -126,9 +131,9 @@ button:hover {
 	position: fixed;
 	left: 1%;
 }
-.pics > * {
+/* .pics > * {
 	background-color: white;
-}
+} */
 .new {
 	margin: -2vw 0 0 5vw;
 }
@@ -148,4 +153,18 @@ button:hover {
 	position: fixed;
 	bottom: 1%;
 	right: 1%;
+}
+.imgTitle {
+	position: fixed;
+	bottom: 0%;
+	background-color: var(--secbg);
+	border-radius: 0.5vw;
+	padding: 0.5vw;
+}
+.imgTitle0 {
+	left: 20%;
+}
+
+.imgTitle1 {
+	right: 20%;
 }

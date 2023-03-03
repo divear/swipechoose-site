@@ -8,14 +8,9 @@ const serverDomain =
 export default function Home() {
 	const [data, setData] = useState<any>();
 	const [index, setIndex] = useState(0);
-	// const [index1, setIndex1] = useState(0);
-	const [imgSrc1, setImgSrc1] = useState(
-		"https://source.unsplash.com/random/200x200?sig=1"
-	);
+
 	function pick(imgNumber: boolean) {
-		// imgNumber ? setIndex(index + 1) : setIndex1(index1 + 1);
 		setIndex(index + 2);
-		setImgSrc1(`https://source.unsplash.com/random/800x800?sig=${index}`);
 	}
 	useEffect(() => {
 		async function getBlogs() {
@@ -52,12 +47,18 @@ export default function Home() {
 						src={data[index + 1].photo_url}
 						alt="pic0"
 					/>
+					<h1 className="imgTitle imgTitle0">
+						{data[index + 1].title}
+					</h1>
 					<img
 						onClick={() => pick(true)}
 						className="pickImage rightImage"
 						src={data[index + 2].photo_url}
 						alt="pic1"
 					/>
+					<h1 className="imgTitle imgTitle1">
+						{data[index + 2].title}
+					</h1>
 				</div>
 				<img className="no" src={data[index + 2].photo_url} alt="" />
 			</div>
