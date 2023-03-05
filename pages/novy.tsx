@@ -18,12 +18,12 @@ function Novy() {
 		console.log("submit");
 
 		if (!title && !img) {
-			setError("Email and password are mandatory");
+			setError("Title and image are mandatory");
 			return;
 		}
-		console.log(imgLink);
+		// console.log(imgLink);
 
-		console.log(img.name);
+		// console.log(img.name);
 
 		const spaceRef = ref(storage, `imgs/${img.name}`);
 		uploadBytes(spaceRef, img).then(async (snapshot) => {
@@ -80,6 +80,7 @@ function Novy() {
 					type="file"
 				/>
 				<button type="submit">post</button>
+				<h1>{error}</h1>
 			</form>
 		</div>
 	);

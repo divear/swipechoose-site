@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { render } from "react-dom";
 import Meta from "../components/Meta";
 import Nav from "../components/Nav";
 const serverDomain =

@@ -11,6 +11,7 @@ import {
 	signOut,
 } from "firebase/auth";
 
+console.log(process.env);
 const firebaseConfig = {
 	apiKey: process.env.NEXT_PUBLIC_API_KEY,
 
