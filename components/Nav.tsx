@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import logo from "../public/logo.png";
 
 function Nav() {
 	const [pfp, setPfp] = useState<any>("");
@@ -14,7 +16,7 @@ function Nav() {
 			<h1>
 				<div className="profile">
 					<Link className="logo" href="/">
-						Swipechoose
+						<Image className="logo" src={logo} alt="logo" />
 					</Link>
 					<h2 className="floatLeft username">{username}</h2>
 					<img
