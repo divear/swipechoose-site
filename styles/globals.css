@@ -172,3 +172,10 @@ button:hover {
 	width: 4vw;
 	height: 4vw;
 }
+.smallUser img {
+	border-radius: 2vw;
+	width: 4vw;
+}
+.smallUser1 {
+	float: right;
+}

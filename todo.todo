@@ -1,6 +1,8 @@
-[]site logo
-[]server
+[x]site logo
+[x]server
 []friends functionality
 []pretty frontend
+[] responsive
 
-[] make the user save his simple id to localstorage
+
+[x] make the user save his simple id to localstorage

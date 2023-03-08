@@ -40,6 +40,10 @@ export default function Home() {
 					Post new
 				</button>
 				<div className="pics">
+					<div className="smallUser">
+						<img src={data[index + 1].pfp} alt="pfp" />
+						<h1>{data[index + 1].username}</h1>
+					</div>
 					<img
 						onClick={() => pick(false)}
 						className="pickImage leftImage"
@@ -49,6 +53,12 @@ export default function Home() {
 					<h1 className="imgTitle imgTitle0">
 						{data[index + 1].title}
 					</h1>
+
+					{/* second */}
+					<div className="smallUser1">
+						<img src={data[index + 2].pfp} alt="pfp" />
+						<h1>{data[index + 2].username}</h1>
+					</div>
 					<img
 						onClick={() => pick(true)}
 						className="pickImage rightImage"
