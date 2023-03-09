@@ -70,6 +70,7 @@ a {
 	margin: 0 2vw;
 }
 .pickImage:hover {
+	z-index: 2;
 	cursor: pointer;
 	position: fixed;
 	animation: widen 0.5s;
@@ -176,6 +177,18 @@ button:hover {
 	border-radius: 2vw;
 	width: 4vw;
 }
+.smallUser * {
+	display: inline-block;
+	margin: 0 1vw;
+}
+.smallUser {
+	z-index: 1;
+	background-color: var(--secbg);
+	border-radius: 2vw;
+	padding: 1vw;
+	position: fixed;
+	top: 20%;
+}
 .smallUser1 {
-	float: right;
+	right: 20%;
 }

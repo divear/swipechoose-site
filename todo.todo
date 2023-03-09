@@ -3,6 +3,7 @@
 []friends functionality
 []pretty frontend
 [] responsive
+[] user profiles
 
 
 [x] make the user save his simple id to localstorage

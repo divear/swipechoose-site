@@ -55,7 +55,7 @@ export default function Home() {
 					</h1>
 
 					{/* second */}
-					<div className="smallUser1">
+					<div className="smallUser smallUser1">
 						<img src={data[index + 2].pfp} alt="pfp" />
 						<h1>{data[index + 2].username}</h1>
 					</div>
