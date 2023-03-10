@@ -182,13 +182,20 @@ button:hover {
 	margin: 0 1vw;
 }
 .smallUser {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.9;
 	z-index: 1;
 	background-color: var(--secbg);
 	border-radius: 2vw;
-	padding: 1vw;
+	padding: 0.5vw;
 	position: fixed;
 	top: 20%;
 }
+.smallUser0 {
+	left: 8%;
+}
 .smallUser1 {
-	right: 20%;
+	right: 15%;
 }

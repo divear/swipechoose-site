@@ -40,7 +40,7 @@ export default function Home() {
 					Post new
 				</button>
 				<div className="pics">
-					<div className="smallUser">
+					<div className="smallUser smallUser0">
 						<img src={data[index + 1].pfp} alt="pfp" />
 						<h1>{data[index + 1].username}</h1>
 					</div>
