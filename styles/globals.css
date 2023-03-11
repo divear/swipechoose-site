@@ -182,6 +182,7 @@ button:hover {
 	margin: 0 1vw;
 }
 .smallUser {
+	cursor: pointer;
 	display: flex;
 	justify-content: center;
 	align-items: center;

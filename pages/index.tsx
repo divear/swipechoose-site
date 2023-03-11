@@ -40,7 +40,14 @@ export default function Home() {
 					Post new
 				</button>
 				<div className="pics">
-					<div className="smallUser smallUser0">
+					<div
+						onClick={() =>
+							(window.location.href = `/user/${
+								data[index + 1].user_id
+							}`)
+						}
+						className="smallUser smallUser0"
+					>
 						<img src={data[index + 1].pfp} alt="pfp" />
 						<h1>{data[index + 1].username}</h1>
 					</div>
@@ -55,7 +62,14 @@ export default function Home() {
 					</h1>
 
 					{/* second */}
-					<div className="smallUser smallUser1">
+					<div
+						onClick={() =>
+							(window.location.href = `/user/${
+								data[index + 2].user_id
+							}`)
+						}
+						className="smallUser smallUser1"
+					>
 						<img src={data[index + 2].pfp} alt="pfp" />
 						<h1>{data[index + 2].username}</h1>
 					</div>
