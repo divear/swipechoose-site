@@ -21,6 +21,21 @@ a {
 	box-sizing: border-box;
 }
 
+button {
+	cursor: pointer;
+	font-size: 1rem;
+	border: none;
+	background-color: var(--sec);
+	font-size: 3rem;
+	border-radius: 0.4vw;
+	padding: 0.5vw;
+}
+button:hover {
+	border-radius: 0.2vw;
+
+	padding: 0.51vw;
+	filter: grayscale(0.2);
+}
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
@@ -96,20 +111,6 @@ a {
 .pics {
 	width: 90vw;
 }
-button {
-	cursor: pointer;
-	font-size: 1rem;
-	border: none;
-	background-color: var(--sec);
-	font-size: 3rem;
-	border-radius: 0.4vw;
-	padding: 0.5vw;
-}
-button:hover {
-	border-radius: 0.2vw;
-	padding: 0.51vw;
-	filter: grayscale(0.2);
-}
 
 .bigText {
 	font-size: 5rem;
@@ -151,9 +152,24 @@ button:hover {
 	font-size: 2rem;
 }
 .footer {
+	width: 100%;
 	position: fixed;
-	bottom: 1%;
-	right: 1%;
+	bottom: 5%;
+}
+.footerText {
+	position: fixed;
+	right: 1% !important;
+}
+.signoff {
+	background-color: var(--sec);
+	left: 0%;
+	font-size: 1rem;
+	padding: 0.5%;
+}
+.signoff:hover {
+	background-color: red;
+	border-radius: 0.2vw;
+	filter: grayscale(0.2);
 }
 .imgTitle {
 	position: fixed;
