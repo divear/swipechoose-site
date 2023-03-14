@@ -40,9 +40,9 @@ function Signin() {
 
 			const userCountR = await fetch(`${serverDomain}users-number`);
 			const userCount = await userCountR.json();
-			console.log(userCount[0].count);
-			localStorage.setItem("count", userCount[0].count);
-			setCount(userCount[0].count);
+			console.log(userCount[0].count + 1);
+			localStorage.setItem("count", userCount[0].count + 1);
+			setCount(userCount[0].count + 1);
 
 			const arr = [Remail, Rusername, Rpfp, Rfollow];
 			const response = await fetch(`${serverDomain}users`, {

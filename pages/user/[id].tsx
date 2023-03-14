@@ -34,7 +34,7 @@ function UserPage() {
 			<Nav />
 			<Meta title="Swipechoose" />
 			<div className="content">
-				<h1>{data && data[0].username}</h1>
+				<h1>{data && data[0] && data[0].username}</h1>
 				{/* <i>{data[0].email}</i> */}
 				{/* {data &&
 					data.map((d: any) => {
