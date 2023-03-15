@@ -4,6 +4,7 @@
 []pretty frontend
 [] responsive
 [] user profiles
+        -user styling
 
 
 [x] make the user save his simple id to localstorage

@@ -1,25 +1,33 @@
 import React, { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
 import Meta from "../../components/Meta";
 import Nav from "../../components/Nav";
 const serverDomain =
 	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
 function UserPage() {
-	const { query } = useRouter();
-	const id = query.id;
-	console.log(id);
+	const [id, setId] = useState();
 
 	const [data, setData] = useState<any>();
+	const [username, setUsername] = useState("");
+	const [pfp, setPfp] = useState("");
+	const [email, setEmail] = useState("");
 	useEffect(() => {
 		async function getBlogs() {
 			try {
-				const response = await fetch(`${serverDomain}users/${id}`);
-				console.log(`${serverDomain}users/${id}`);
+				const tid = window.location.search;
+				const urlParams = new URLSearchParams(tid);
+				console.log(urlParams);
+
+				setId(id);
+				const response = await fetch(`${serverDomain}users/${tid}`);
+				console.log(`${serverDomain}users/${tid}`);
 
 				const jsonData = await response.json();
 				setData(jsonData);
 				console.log(jsonData);
+				setUsername(jsonData[0].username);
+				setPfp(jsonData[0].pfp);
+				setEmail(jsonData[0].email);
 			} catch (error) {
 				console.log(error);
 			}
@@ -34,13 +42,23 @@ function UserPage() {
 			<Nav />
 			<Meta title="Swipechoose" />
 			<div className="content">
-				<h1>{data && data[0] && data[0].username}</h1>
-				{/* <i>{data[0].email}</i> */}
-				{/* {data &&
-					data.map((d: any) => {
-						return <div>hi</div>;
-					})} */}
-				{/* <img src={data[0].pfp} alt="" /> */}
+				<p>{!data && "loading, something something our fault"}</p>
+				<img className="pfp" src={pfp} alt="" />
+				<h1>{username}</h1>
+				<i>{email}</i>
+				{data &&
+					data.map((d: any, i: number) => {
+						return (
+							<div>
+								<h2>{d.title}</h2>
+								<img
+									className="pickImage"
+									src={d.photo_url}
+									alt=""
+								/>
+							</div>
+						);
+					})}
 			</div>
 		</div>
 	);
