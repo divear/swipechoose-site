@@ -40,22 +40,28 @@ function UserPage() {
 			<Meta title="Swipechoose" />
 			<div className="content">
 				<p>{!data && "loading, something something our fault"}</p>
-				<img className="pfp" src={pfp} alt="" />
-				<h1>{username}</h1>
-				<i>{email}</i>
-				{data &&
-					data.map((d: any, i: number) => {
-						return (
-							<div>
-								<h2>{d.title}</h2>
-								<img
-									className="pickImage"
-									src={d.photo_url}
-									alt=""
-								/>
-							</div>
-						);
-					})}
+				<div className="userInfo">
+					<img className="pfp" src={pfp} alt="" />
+					<div className="username">
+						<h1>{username}</h1>
+						<i>{email}</i>
+					</div>
+				</div>
+				<div className="imgGrid">
+					{data &&
+						data.map((d: any, i: number) => {
+							return (
+								<div>
+									{/* <h2>{d.title}</h2> */}
+									<img
+										className="userImage"
+										src={d.photo_url}
+										alt=""
+									/>
+								</div>
+							);
+						})}
+				</div>
 			</div>
 		</div>
 	);

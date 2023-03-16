@@ -216,3 +216,16 @@ button:hover {
 .smallUser1 {
 	right: 15%;
 }
+.userInfo {
+	margin: 0 7vw;
+	display: flex;
+	width: 30%;
+}
+.imgGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	margin: 2%;
+}
+.userImage {
+	width: 90%;
+}
