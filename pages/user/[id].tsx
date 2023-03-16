@@ -5,8 +5,6 @@ import Nav from "../../components/Nav";
 const serverDomain =
 	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
 function UserPage() {
-	const [id, setId] = useState();
-
 	const [data, setData] = useState<any>();
 	const [username, setUsername] = useState("");
 	const [pfp, setPfp] = useState("");
@@ -14,11 +12,10 @@ function UserPage() {
 	useEffect(() => {
 		async function getBlogs() {
 			try {
-				const tid = window.location.search;
-				const urlParams = new URLSearchParams(tid);
-				console.log(urlParams);
+				const tid = window.location.pathname.replace("/user/", "");
 
-				setId(id);
+				console.log(tid);
+
 				const response = await fetch(`${serverDomain}users/${tid}`);
 				console.log(`${serverDomain}users/${tid}`);
 
