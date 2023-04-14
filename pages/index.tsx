@@ -37,8 +37,18 @@ export default function Home() {
 		const sdat = data.filter(
 			(d: any) => d.username.slice(0, search.length) === search
 		);
-		setSearchNames(sdat);
+		var sdata = removeDuplicatesBy((da: any) => da.username, sdat);
+		setSearchNames(sdata);
 		console.log(sdat);
+	}
+	function removeDuplicatesBy(keyFn: any, array: any) {
+		var mySet = new Set();
+		return array.filter(function (x) {
+			var key = keyFn(x),
+				isNew = !mySet.has(key);
+			if (isNew) mySet.add(key);
+			return isNew;
+		});
 	}
 
 	if (data) {
