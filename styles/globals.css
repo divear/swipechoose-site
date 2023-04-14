@@ -229,3 +229,11 @@ button:hover {
 .userImage {
 	width: 90%;
 }
+.searchbar {
+	text-align: center;
+	font-size: 1.5rem;
+	position: fixed;
+	top: 1%;
+	left: 50%;
+	transform: translate(-50%, 0);
+}

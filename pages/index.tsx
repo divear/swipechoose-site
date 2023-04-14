@@ -7,6 +7,7 @@ const serverDomain =
 export default function Home() {
 	const [data, setData] = useState<any>();
 	const [index, setIndex] = useState(0);
+	const [searchNames, setSearchNames] = useState([]);
 
 	function pick(imgNumber: boolean) {
 		setIndex(index + 2);
@@ -17,7 +18,6 @@ export default function Home() {
 				const response = await fetch(`${serverDomain}posts`);
 				const jsonData = await response.json();
 				setData(jsonData.reverse());
-				console.log(jsonData);
 			} catch (error) {
 				console.log(error);
 			}
@@ -27,12 +27,28 @@ export default function Home() {
 			window.location.href = "signin";
 		}
 	}, []);
+	function searchPeople(e: any) {
+		console.log(e.target.value);
+		const search = e.target.value;
+		console.log(data[0].username.slice(0, search.length));
+
+		const sdat = data.filter(
+			(d: any) => d.username.slice(0, search.length) === search
+		);
+		console.log(sdat);
+	}
 
 	if (data) {
 		return (
 			<div className="content">
 				<Nav />
 				<Meta title="Swipechoose" />
+				<input
+					onChange={(e) => searchPeople(e)}
+					className="searchbar"
+					type="search"
+					placeholder="Search for people"
+				/>
 				<button
 					className="new"
 					onClick={() => (window.location.href = "/novy")}
