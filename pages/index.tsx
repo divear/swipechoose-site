@@ -30,6 +30,7 @@ export default function Home() {
 	function searchPeople(e: any) {
 		console.log(e.target.value);
 		const search = e.target.value;
+
 		if (search.length < 2) return;
 		console.log(data[0].username.slice(0, search.length));
 
@@ -56,6 +57,11 @@ export default function Home() {
 						searchNames.map((d: any, i: number) => {
 							return (
 								<div>
+									<img
+										src={d.pfp}
+										alt="pfp"
+										className="miniPfp"
+									/>
 									<h3>{d.username}</h3>
 								</div>
 							);

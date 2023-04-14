@@ -237,3 +237,18 @@ button:hover {
 	left: 50%;
 	transform: translate(-50%, 0);
 }
+.searchedModal {
+	text-align: center;
+	font-size: 1.5rem;
+	position: fixed;
+	top: 2%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 10%;
+	background-color: var(--secBg);
+	z-index: -1;
+}
+.miniPfp {
+	width: 2.5vw;
+	float: left;
+}
