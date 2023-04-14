@@ -30,11 +30,13 @@ export default function Home() {
 	function searchPeople(e: any) {
 		console.log(e.target.value);
 		const search = e.target.value;
+		if (search.length < 2) return;
 		console.log(data[0].username.slice(0, search.length));
 
 		const sdat = data.filter(
 			(d: any) => d.username.slice(0, search.length) === search
 		);
+		setSearchNames(sdat);
 		console.log(sdat);
 	}
 
@@ -49,6 +51,16 @@ export default function Home() {
 					type="search"
 					placeholder="Search for people"
 				/>
+				<div className={searchNames[0] ? "searchedModal" : "no"}>
+					{searchNames &&
+						searchNames.map((d: any, i: number) => {
+							return (
+								<div>
+									<h3>{d.username}</h3>
+								</div>
+							);
+						})}
+				</div>
 				<button
 					className="new"
 					onClick={() => (window.location.href = "/novy")}
