@@ -2,6 +2,7 @@
 	--fr: white;
 	--bg: rgb(35, 33, 25);
 	--secbg: rgb(58, 56, 50);
+	--secbgSel: rgb(76, 73, 60);
 	--sec: rgb(215, 95, 9);
 }
 html,
@@ -248,10 +249,16 @@ button:hover {
 	cursor: pointer;
 	width: 20%;
 }
-.searchedModal * {
+.searchUsername {
 	height: 2.5vw;
-	margin: 1vh 0;
+	margin: -2vh 0;
 	background-color: var(--secbg);
+	border-radius: 2vw;
+}
+.hoverSearchUsername {
+	height: 2.5vw;
+	margin: -2vh 0;
+	background-color: var(--secbgSel);
 	border-radius: 2vw;
 }
 .miniPfp {

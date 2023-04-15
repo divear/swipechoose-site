@@ -8,6 +8,7 @@ export default function Home() {
 	const [data, setData] = useState<any>();
 	const [index, setIndex] = useState(0);
 	const [searchNames, setSearchNames] = useState([]);
+	const [nameHovered, setNameHovered] = useState(0);
 
 	function pick(imgNumber: boolean) {
 		setIndex(index + 2);
@@ -26,13 +27,21 @@ export default function Home() {
 		if (!localStorage.getItem("uid")) {
 			window.location.href = "signin";
 		}
+
+		function move(e: any) {
+			console.log(nameHovered);
+			if (e.key === "ArrowDown") {
+				setNameHovered(nameHovered + 1);
+			} else if (e.key === "ArrowUp") {
+				setNameHovered(nameHovered - 1);
+			}
+		}
+		window.document.addEventListener("keydown", (e) => move(e));
 	}, []);
 	function searchPeople(e: any) {
-		console.log(e.target.value);
 		const search = e.target.value;
 
 		if (search.length < 2) return;
-		// console.log(data[0].username.slice(0, search.length));
 
 		const sdat = data.filter(
 			(d: any) =>
@@ -41,7 +50,6 @@ export default function Home() {
 		);
 		var sdata = removeDuplicatesBy((da: any) => da.username, sdat);
 		setSearchNames(sdata);
-		console.log(sdat);
 	}
 
 	function removeDuplicatesBy(keyFn: any, array: any) {
@@ -70,9 +78,15 @@ export default function Home() {
 						searchNames.map((d: any, i: number) => {
 							return (
 								<div
+									className={
+										nameHovered == i
+											? "hoverSearchUsername"
+											: "searchUsername"
+									}
 									onClick={() =>
 										(window.location.href = `user/${d.user_id}`)
 									}
+									onMouseEnter={() => setNameHovered(i)}
 								>
 									<img
 										src={d.pfp}
