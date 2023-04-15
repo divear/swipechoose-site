@@ -32,18 +32,21 @@ export default function Home() {
 		const search = e.target.value;
 
 		if (search.length < 2) return;
-		console.log(data[0].username.slice(0, search.length));
+		// console.log(data[0].username.slice(0, search.length));
 
 		const sdat = data.filter(
-			(d: any) => d.username.slice(0, search.length) === search
+			(d: any) =>
+				d.username.toLowerCase().slice(0, search.length) ===
+				search.toLowerCase()
 		);
 		var sdata = removeDuplicatesBy((da: any) => da.username, sdat);
 		setSearchNames(sdata);
 		console.log(sdat);
 	}
+
 	function removeDuplicatesBy(keyFn: any, array: any) {
 		var mySet = new Set();
-		return array.filter(function (x) {
+		return array.filter(function (x: any) {
 			var key = keyFn(x),
 				isNew = !mySet.has(key);
 			if (isNew) mySet.add(key);
@@ -66,7 +69,11 @@ export default function Home() {
 					{searchNames &&
 						searchNames.map((d: any, i: number) => {
 							return (
-								<div>
+								<div
+									onClick={() =>
+										(window.location.href = `user/${d.user_id}`)
+									}
+								>
 									<img
 										src={d.pfp}
 										alt="pfp"

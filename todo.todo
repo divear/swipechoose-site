@@ -5,6 +5,7 @@
 [] responsive
 [] user profiles
         -user styling
+[] make the search work, when you click the username
 
 
 [x] make the user save his simple id to localstorage
