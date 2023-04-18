@@ -51,7 +51,7 @@ function UserPage() {
 					{data &&
 						data.map((d: any, i: number) => {
 							return (
-								<div>
+								<div key={i}>
 									{/* <h2>{d.title}</h2> */}
 									<img
 										className="userImage"

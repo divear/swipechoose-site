@@ -29,12 +29,19 @@ export default function Home() {
 		}
 
 		function move(e: any) {
-			console.log(nameHovered);
-			if (e.key === "ArrowDown") {
-				setNameHovered(nameHovered + 1);
-			} else if (e.key === "ArrowUp") {
-				setNameHovered(nameHovered - 1);
+			if (!searchNames[0]) {
+				return;
 			}
+			if (e.key === "ArrowDown" && nameHovered < searchNames.length) {
+				setNameHovered(nameHovered + 1);
+			} else if (e.key === "ArrowUp" && nameHovered > 0) {
+				setNameHovered(nameHovered - 1);
+			} else if (e.key === "Enter") {
+				const userId = searchNames[nameHovered];
+				console.log(searchNames);
+				// visitUserPage();
+			}
+			console.log(e.key, nameHovered);
 		}
 		window.document.addEventListener("keydown", (e) => move(e));
 	}, []);
@@ -48,7 +55,7 @@ export default function Home() {
 				d.username.toLowerCase().slice(0, search.length) ===
 				search.toLowerCase()
 		);
-		var sdata = removeDuplicatesBy((da: any) => da.username, sdat);
+		var sdata = removeDuplicatesBy((da: any) => da.email, sdat);
 		setSearchNames(sdata);
 	}
 
@@ -60,6 +67,9 @@ export default function Home() {
 			if (isNew) mySet.add(key);
 			return isNew;
 		});
+	}
+	function visitUserPage(id: number) {
+		window.location.href = `user/${id}`;
 	}
 
 	if (data) {
@@ -78,14 +88,14 @@ export default function Home() {
 						searchNames.map((d: any, i: number) => {
 							return (
 								<div
+									key={i}
+									id={`searchedName${i}`}
 									className={
 										nameHovered == i
 											? "hoverSearchUsername"
 											: "searchUsername"
 									}
-									onClick={() =>
-										(window.location.href = `user/${d.user_id}`)
-									}
+									onClick={() => visitUserPage(d.user_id)}
 									onMouseEnter={() => setNameHovered(i)}
 								>
 									<img
