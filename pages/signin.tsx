@@ -7,8 +7,10 @@ import {
 	signOut,
 } from "../components/firebase";
 import Meta from "../components/Meta";
-const serverDomain =
-	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
+
+console.log(window.location.hostname);
+
+var serverDomain: any;
 
 function Signin() {
 	console.log(serverDomain);
@@ -29,6 +31,11 @@ function Signin() {
 		};
 	}, []);
 	useEffect(() => {
+		if (window.location.hostname != "localhost") {
+			serverDomain = "https://swipechoose.onrender.com/";
+		} else {
+			serverDomain = "http://localhost:4000/";
+		}
 		if (!user) return;
 		(async function () {
 			const Remail = user?.email;

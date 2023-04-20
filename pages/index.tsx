@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import Nav from "../components/Nav";
-const serverDomain =
-	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
+
+var serverDomain: any;
 
 export default function Home() {
 	const [data, setData] = useState<any>();
@@ -14,6 +14,11 @@ export default function Home() {
 		setIndex(index + 2);
 	}
 	useEffect(() => {
+		if (window.location.hostname != "localhost") {
+			serverDomain = "https://swipechoose.onrender.com/";
+		} else {
+			serverDomain = "http://localhost:4000/";
+		}
 		async function getBlogs() {
 			try {
 				const response = await fetch(`${serverDomain}posts`);
@@ -32,14 +37,16 @@ export default function Home() {
 			if (!searchNames[0]) {
 				return;
 			}
+			console.log(e.key);
+
 			if (e.key === "ArrowDown" && nameHovered < searchNames.length) {
 				setNameHovered(nameHovered + 1);
 			} else if (e.key === "ArrowUp" && nameHovered > 0) {
 				setNameHovered(nameHovered - 1);
-			} else if (e.key === "Enter") {
-				const userId = searchNames[nameHovered];
-				console.log(searchNames);
-				// visitUserPage();
+			} else if (e.key === "Enter" || e.key === "Space") {
+				const userId: any = searchNames[nameHovered];
+				console.log(userId);
+				visitUserPage(userId.user_id);
 			}
 			console.log(e.key, nameHovered);
 		}
