@@ -78,6 +78,9 @@ export default function Home() {
 	function visitUserPage(id: number) {
 		window.location.href = `user/${id}`;
 	}
+	function choosePost(i: number) {
+		window.location.href = `/user/${data[index + i].user_id}`;
+	}
 
 	if (data) {
 		return (
@@ -123,11 +126,7 @@ export default function Home() {
 				</button>
 				<div className="pics">
 					<div
-						onClick={() =>
-							(window.location.href = `/user/${
-								data[index + 1].user_id
-							}`)
-						}
+						onClick={() => choosePost(1)}
 						className="smallUser smallUser0"
 					>
 						<img src={data[index + 1].pfp} alt="pfp" />
@@ -145,11 +144,7 @@ export default function Home() {
 
 					{/* second */}
 					<div
-						onClick={() =>
-							(window.location.href = `/user/${
-								data[index + 2].user_id
-							}`)
-						}
+						onClick={() => choosePost(2)}
 						className="smallUser smallUser1"
 					>
 						<img src={data[index + 2].pfp} alt="pfp" />
