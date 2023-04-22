@@ -10,9 +10,6 @@ export default function Home() {
 	const [searchNames, setSearchNames] = useState([]);
 	const [nameHovered, setNameHovered] = useState(0);
 
-	function pick(imgNumber: boolean) {
-		setIndex(index + 2);
-	}
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
@@ -78,7 +75,22 @@ export default function Home() {
 	function visitUserPage(id: number) {
 		window.location.href = `user/${id}`;
 	}
-	function choosePost(i: number) {
+
+	//pick one posts
+	function pick(imgNumber: boolean, postId: number) {
+		console.log("change", postId);
+		console.log(`${serverDomain}posts/${postId}`);
+
+		setIndex(index + 2);
+		async () => {
+			const response = await fetch(`${serverDomain}posts/${postId}`, {
+				method: "PUT",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify([postId]),
+			});
+		};
+	}
+	function clickUser(i: number) {
 		window.location.href = `/user/${data[index + i].user_id}`;
 	}
 
@@ -125,15 +137,16 @@ export default function Home() {
 					Post new
 				</button>
 				<div className="pics">
+					{/* first */}
 					<div
-						onClick={() => choosePost(1)}
+						onClick={() => clickUser(1)}
 						className="smallUser smallUser0"
 					>
 						<img src={data[index + 1].pfp} alt="pfp" />
 						<h1>{data[index + 1].username}</h1>
 					</div>
 					<img
-						onClick={() => pick(false)}
+						onClick={() => pick(false, data[index + 1].id)}
 						className="pickImage leftImage"
 						src={data[index + 1].photo_url}
 						alt="pic0"
@@ -144,14 +157,14 @@ export default function Home() {
 
 					{/* second */}
 					<div
-						onClick={() => choosePost(2)}
+						onClick={() => clickUser(2)}
 						className="smallUser smallUser1"
 					>
 						<img src={data[index + 2].pfp} alt="pfp" />
 						<h1>{data[index + 2].username}</h1>
 					</div>
 					<img
-						onClick={() => pick(true)}
+						onClick={() => pick(true, data[index + 2].id)}
 						className="pickImage rightImage"
 						src={data[index + 2].photo_url}
 						alt="pic1"

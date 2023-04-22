@@ -22,3 +22,6 @@ CREATE TABLE posts(
     PRIMARY KEY(id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
 );
+
+
+UPDATE posts SET points = 0 
