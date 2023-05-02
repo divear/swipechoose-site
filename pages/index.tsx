@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import Nav from "../components/Nav";
+import Image from "next/image";
 
 var serverDomain: any;
 
@@ -120,7 +121,9 @@ export default function Home() {
 									onClick={() => visitUserPage(d.user_id)}
 									onMouseEnter={() => setNameHovered(i)}
 								>
-									<img
+									<Image
+										width={100}
+										height={100}
 										src={d.pfp}
 										alt="pfp"
 										className="miniPfp"
@@ -142,13 +145,19 @@ export default function Home() {
 						onClick={() => clickUser(1)}
 						className="smallUser smallUser0"
 					>
-						<img src={data[index + 1].pfp} alt="pfp" />
+						<img
+							height={100}
+							width={100}
+							src={data[index + 1].pfp}
+							alt="pfp"
+						/>
 						<h1>{data[index + 1].username}</h1>
 					</div>
 					<img
 						onClick={() => pick(false, data[index + 1].id)}
 						className="pickImage leftImage"
 						src={data[index + 1].photo_url}
+						width={100}
 						alt="pic0"
 					/>
 					<h1 className="imgTitle imgTitle0">

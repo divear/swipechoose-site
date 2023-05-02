@@ -7,7 +7,9 @@
         -user styling
 [x] make the search work, when you click the username
 [] make the select work properly
-[] add like counter
+[] fix weird bug while searching username
+[] make the like counter work
+-- [] make the likes save to redis or something
 
 
 [x] make the user save his simple id to localstorage
