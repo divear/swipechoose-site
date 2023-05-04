@@ -78,18 +78,14 @@ export default function Home() {
 	}
 
 	//pick one posts
-	function pick(imgNumber: boolean, postId: number) {
+	async function pick(imgNumber: boolean, postId: number) {
 		console.log("change", postId);
 		console.log(`${serverDomain}posts/${postId}`);
 
 		setIndex(index + 2);
-		async () => {
-			const response = await fetch(`${serverDomain}posts/${postId}`, {
-				method: "PUT",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify([postId]),
-			});
-		};
+		const response = await fetch(`${serverDomain}posts/${postId}`, {
+			method: "PUT",
+		});
 	}
 	function clickUser(i: number) {
 		window.location.href = `/user/${data[index + i].user_id}`;
