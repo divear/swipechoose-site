@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import Nav from "../components/Nav";
 import Image from "next/image";
+import point from "../public/point.png";
 
 var serverDomain: any;
 
@@ -154,11 +155,10 @@ export default function Home() {
 					/>
 					<h1 className="imgTitle imgTitle0">
 						{data[index + 1].title}
-					</h1>
-					<h1 className="likeCount likeCount1">{`${
-						data[index + 1].points
-					} points`}</h1>
 
+						<Image width={50} src={point} alt=" likes"></Image>
+						{data[index + 1].points}
+					</h1>
 					{/* second */}
 					<div
 						onClick={() => clickUser(2)}
@@ -175,10 +175,10 @@ export default function Home() {
 					/>
 					<h1 className="imgTitle imgTitle1">
 						{data[index + 2].title}
+
+						<Image width={50} src={point} alt=" likes"></Image>
+						{data[index + 2].points}
 					</h1>
-					<h1 className="likeCount likeCount2">{`${
-						data[index + 1].points
-					} points`}</h1>
 				</div>
 				<img className="no" src={data[index + 2].photo_url} alt="" />
 			</div>
