@@ -21,6 +21,8 @@ export default function Home() {
 			try {
 				const response = await fetch(`${serverDomain}posts`);
 				const jsonData = await response.json();
+				console.log(jsonData);
+
 				setData(jsonData.reverse());
 			} catch (error) {
 				console.log(error);
@@ -141,24 +143,21 @@ export default function Home() {
 						onClick={() => clickUser(1)}
 						className="smallUser smallUser0"
 					>
-						<img
-							height={100}
-							width={100}
-							src={data[index + 1].pfp}
-							alt="pfp"
-						/>
+						<img src={data[index + 1].pfp} alt="pfp" />
 						<h1>{data[index + 1].username}</h1>
 					</div>
 					<img
 						onClick={() => pick(false, data[index + 1].id)}
 						className="pickImage leftImage"
 						src={data[index + 1].photo_url}
-						width={100}
 						alt="pic0"
 					/>
 					<h1 className="imgTitle imgTitle0">
 						{data[index + 1].title}
 					</h1>
+					<h1 className="likeCount likeCount1">{`${
+						data[index + 1].points
+					} points`}</h1>
 
 					{/* second */}
 					<div
@@ -177,6 +176,9 @@ export default function Home() {
 					<h1 className="imgTitle imgTitle1">
 						{data[index + 2].title}
 					</h1>
+					<h1 className="likeCount likeCount2">{`${
+						data[index + 1].points
+					} points`}</h1>
 				</div>
 				<img className="no" src={data[index + 2].photo_url} alt="" />
 			</div>

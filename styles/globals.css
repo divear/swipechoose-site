@@ -268,6 +268,19 @@ button:hover {
 	width: 2.5vw;
 	float: left;
 }
+.likeCount {
+	position: fixed;
+	bottom: 0%;
+	background-color: var(--secfr);
+	border-radius: 0.5vw;
+	padding: 0.5vw;
+}
+.likeCount1 {
+	left: 7%;
+}
+.likeCount2 {
+	left: 80%;
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

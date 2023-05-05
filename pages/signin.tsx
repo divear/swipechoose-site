@@ -8,7 +8,7 @@ import {
 } from "../components/firebase";
 import Meta from "../components/Meta";
 
-console.log(window.location.hostname);
+// console.log(window.location.hostname);
 
 var serverDomain: any;
 
