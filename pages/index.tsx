@@ -11,6 +11,7 @@ export default function Home() {
 	const [index, setIndex] = useState(0);
 	const [searchNames, setSearchNames] = useState([]);
 	const [nameHovered, setNameHovered] = useState(0);
+	const [isEnd, setIsEnd] = useState(false);
 
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
@@ -82,8 +83,10 @@ export default function Home() {
 
 	//pick one posts
 	async function pick(imgNumber: boolean, postId: number) {
-		console.log("change", postId);
-		console.log(`${serverDomain}posts/${postId}`);
+		if (!data[index + 3] || !data[index + 4]) {
+			setIsEnd(true);
+			return;
+		}
 
 		setIndex(index + 2);
 		const response = await fetch(`${serverDomain}posts/${postId}`, {
@@ -105,6 +108,9 @@ export default function Home() {
 					type="search"
 					placeholder="Search for people"
 				/>
+				<div className={isEnd ? "endModal" : "no"}>
+					<h1>u ran out of posts, buddy</h1>
+				</div>
 				<div className={searchNames[0] ? "searchedModal" : "no"}>
 					{searchNames &&
 						searchNames.map((d: any, i: number) => {
@@ -153,12 +159,13 @@ export default function Home() {
 						src={data[index + 1].photo_url}
 						alt="pic0"
 					/>
-					<h1 className="imgTitle imgTitle0">
+					<h1 className="imgTitle imgTitle1">
 						{data[index + 1].title}
-
+					</h1>
+					<div className="likeCount likeCount1">
 						<Image width={50} src={point} alt=" likes"></Image>
 						{data[index + 1].points}
-					</h1>
+					</div>
 					{/* second */}
 					<div
 						onClick={() => clickUser(2)}
@@ -173,12 +180,13 @@ export default function Home() {
 						src={data[index + 2].photo_url}
 						alt="pic1"
 					/>
-					<h1 className="imgTitle imgTitle1">
+					<h1 className="imgTitle imgTitle2">
 						{data[index + 2].title}
-
+					</h1>
+					<div className="likeCount likeCount2">
 						<Image width={50} src={point} alt=" likes"></Image>
 						{data[index + 2].points}
-					</h1>
+					</div>
 				</div>
 				<img className="no" src={data[index + 2].photo_url} alt="" />
 			</div>

@@ -179,11 +179,11 @@ button:hover {
 	border-radius: 0.5vw;
 	padding: 0.5vw;
 }
-.imgTitle0 {
-	left: 20%;
+.imgTitle1 {
+	left: 5%;
 }
 
-.imgTitle1 {
+.imgTitle2 {
 	right: 20%;
 }
 .logo {
@@ -269,17 +269,29 @@ button:hover {
 	float: left;
 }
 .likeCount {
+	font-size: 2rem;
 	position: fixed;
 	bottom: 0%;
-	background-color: var(--secfr);
 	border-radius: 0.5vw;
 	padding: 0.5vw;
+	background-color: rgba(58, 56, 50, 0.27);
 }
 .likeCount1 {
-	left: 7%;
+	left: 24%;
 }
 .likeCount2 {
 	left: 80%;
+}
+.endModal {
+	font-size: 5rem;
+	padding: 1vw;
+	z-index: 99;
+	position: fixed;
+	top: 5%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	background-color: var(--sec);
+	border-radius: 2rem;
 }
 /* mobile view */
 @media only screen and (max-width: 830px) {

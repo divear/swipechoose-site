@@ -10,8 +10,8 @@
 [] fix weird bug while searching username
 
 
-[] make the like counter work
--- [] make the likes save to redis or something
+[x] make the like counter work
+[] make a text box saying u ran out of posts to show
 
 
 [x] make the user save his simple id to localstorage
