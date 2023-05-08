@@ -83,6 +83,7 @@ button:hover {
 	border-radius: 1vw;
 	position: fixed;
 	width: 35%;
+	max-height: 70%;
 	margin: 0 2vw;
 }
 .pickImage:hover {
@@ -178,6 +179,7 @@ button:hover {
 	background-color: var(--secbg);
 	border-radius: 0.5vw;
 	padding: 0.5vw;
+	max-width: 19%;
 }
 .imgTitle1 {
 	left: 5%;
