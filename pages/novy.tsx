@@ -31,7 +31,7 @@ function Novy() {
 				console.log(img);
 				console.log(snapshot);
 
-				const Rid = { id: Number(localStorage.getItem("count")) };
+				const Rid = { user_id: Number(localStorage.getItem("count")) };
 				const Rtitle = { title };
 				const Rimg = { imgLink };
 
