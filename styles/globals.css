@@ -173,14 +173,6 @@ button:hover {
 	border-radius: 0.2vw;
 	filter: grayscale(0.2);
 }
-.imgTitle {
-	position: fixed;
-	bottom: 0%;
-	background-color: var(--secbg);
-	border-radius: 0.5vw;
-	padding: 0.5vw;
-	max-width: 19%;
-}
 .imgTitle1 {
 	left: 5%;
 }
@@ -191,33 +183,6 @@ button:hover {
 .logo {
 	width: 4vw;
 	height: 4vw;
-}
-.smallUser img {
-	border-radius: 2vw;
-	width: 4vw;
-}
-.smallUser * {
-	display: inline-block;
-	margin: 0 1vw;
-}
-.smallUser {
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	opacity: 0.9;
-	z-index: 1;
-	background-color: var(--secbg);
-	border-radius: 2vw;
-	padding: 0.5vw;
-	position: fixed;
-	top: 20%;
-}
-.smallUser0 {
-	left: 8%;
-}
-.smallUser1 {
-	right: 15%;
 }
 .userInfo {
 	margin: 0 7vw;
@@ -271,8 +236,8 @@ button:hover {
 	float: left;
 }
 .likeCount {
-	font-size: 2rem;
-	position: fixed;
+	float: right;
+	font-size: 1.5rem;
 	bottom: 0%;
 	border-radius: 0.5vw;
 	padding: 0.5vw;
@@ -294,6 +259,44 @@ button:hover {
 	transform: translate(-50%, 0);
 	background-color: var(--sec);
 	border-radius: 2rem;
+}
+.smallUser img {
+	border-radius: 2vw;
+	width: 1.5vw;
+}
+.smallUser * {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 0.2vw;
+}
+.smallUser {
+	font-size: 0.7rem;
+	opacity: 0.9;
+	z-index: 1;
+	border-radius: 1vw;
+	background-color: rgb(0, 0, 0);
+}
+.imgTitle {
+	position: fixed;
+	bottom: 0%;
+}
+.info1 {
+	position: fixed;
+	left: 5%;
+	bottom: 0%;
+	background-color: var(--secbg);
+	border-radius: 0.5vw;
+	padding: 0.5vw;
+	max-width: 19%;
+}
+.info2 {
+	position: fixed;
+	right: 20%;
+	bottom: 0%;
+	background-color: var(--secbg);
+	border-radius: 0.5vw;
+	padding: 0.5vw;
+	max-width: 19%;
 }
 /* mobile view */
 @media only screen and (max-width: 830px) {
