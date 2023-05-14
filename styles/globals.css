@@ -69,6 +69,7 @@ button:hover {
 	border-radius: 2vw;
 }
 .profile {
+	cursor: pointer;
 	margin: 0.5vw;
 	position: fixed;
 	right: 0;
@@ -135,8 +136,10 @@ button:hover {
 }
 
 .logo {
+	cursor: pointer;
 	position: fixed;
-	left: 1%;
+	top: 0.5%;
+	left: 0.5%;
 }
 /* .pics > * {
 	background-color: white;

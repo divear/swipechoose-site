@@ -6,18 +6,23 @@ import logo from "../public/logo.png";
 function Nav() {
 	const [pfp, setPfp] = useState<any>("");
 	const [username, setUsername] = useState<any>("");
+	const [count, setCount] = useState<any>();
 	useEffect(() => {
 		setPfp(localStorage.getItem("pfp"));
 		setUsername(localStorage.getItem("username"));
+		setCount(localStorage.getItem("count"));
 	}, []);
 
 	return (
 		<div>
 			<h1>
-				<div className="profile">
-					<Link className="logo" href="/">
-						<Image className="logo" src={logo} alt="logo" />
-					</Link>
+				<Link className="logo" href="/">
+					<Image className="logo" src={logo} alt="logo" />
+				</Link>
+				<div
+					onClick={() => (window.location.href = `/user/${count}`)}
+					className="profile"
+				>
 					<h2 className="floatLeft username">{username}</h2>
 					<img
 						width={50}
