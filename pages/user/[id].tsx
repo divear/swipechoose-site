@@ -42,7 +42,7 @@ function UserPage() {
 				<p>{!data && "loading, something something our fault"}</p>
 				<div className="userInfo">
 					<img className="pfp" src={pfp} alt="" />
-					<div className="username">
+					<div className="bigUsername">
 						<h1>{username}</h1>
 						<i>{email}</i>
 					</div>

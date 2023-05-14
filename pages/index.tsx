@@ -142,7 +142,7 @@ export default function Home() {
 					className="new"
 					onClick={() => (window.location.href = "/novy")}
 				>
-					Post new
+					+
 				</button>
 				<div className="pics">
 					{/* first */}
