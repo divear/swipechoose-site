@@ -141,9 +141,6 @@ button:hover {
 	top: 0.5%;
 	left: 0.5%;
 }
-/* .pics > * {
-	background-color: white;
-} */
 .new {
 	margin: -2vw 0 0 5vw;
 	border-radius: 100vw;
@@ -364,5 +361,20 @@ button:hover {
 	.info1,
 	.info2 {
 		display: none;
+	}
+	.newImgForm {
+		width: 95%;
+		display: grid;
+	}
+	#title {
+		width: 100%;
+	}
+	#pic {
+		width: 100%;
+	}
+	#sendImage {
+		margin: 10vw 0;
+		border-radius: 2vw;
+		padding: 2vw;
 	}
 }

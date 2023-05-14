@@ -79,7 +79,9 @@ function Novy() {
 					id="pic"
 					type="file"
 				/>
-				<button type="submit">post</button>
+				<button id="sendImage" type="submit">
+					post
+				</button>
 				<h1>{error}</h1>
 			</form>
 		</div>
