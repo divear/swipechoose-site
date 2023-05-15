@@ -163,6 +163,10 @@ export default function Home() {
 						</div>
 						<h1 className="">{data[index + 1].title}</h1>
 					</div>
+					{/* new user info */}
+					<p className={index == 0 ? "newUserInfo" : "newUserInfoNo"}>
+						Click the image you like better to give it a point
+					</p>{" "}
 					{/* second */}
 					<img
 						onClick={() => pick(true, data[index + 2].id)}

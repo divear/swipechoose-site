@@ -308,6 +308,40 @@ button:hover {
 	padding: 0.5vw;
 	max-width: 19%;
 }
+.newUserInfo {
+	position: fixed;
+	left: 50%;
+	bottom: 50%;
+	transform: translate(-50%, 0);
+	width: 15%;
+	padding: 1vw;
+	border-radius: 1vw;
+	border: 2px var(--sec) solid;
+	font-size: 2rem;
+}
+.newUserInfoNo {
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0);
+	bottom: 0%;
+	width: 15%;
+	padding: 1vw;
+	border-radius: 1vw;
+	opacity: 0%;
+	border: 2px var(--sec) solid;
+	font-size: 2rem;
+	animation: slideDown 2s;
+}
+@keyframes slideDown {
+	from {
+		bottom: 50%;
+		opacity: 100%;
+	}
+	to {
+		bottom: 0%;
+		opacity: 0%;
+	}
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

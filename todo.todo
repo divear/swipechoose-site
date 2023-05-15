@@ -13,6 +13,7 @@
 [x] make the like counter work
 [x] make a text box saying u ran out of posts to show
 [x] fix posts not having a user
+[] hammerjs swipe
 
 
 [x] make the user save his simple id to localstorage
