@@ -412,10 +412,11 @@ button:hover {
 		padding: 2vw;
 	}
 	.newUserInfo {
+		background-color: var(--bg);
 		position: fixed;
 		left: 5%;
 		top: 50%;
-		transform: translate(0, -50%);
+		transform: translate(0, -90%);
 		width: 90%;
 		height: 16%;
 		padding: 1vw;
@@ -424,22 +425,22 @@ button:hover {
 		font-size: 2rem;
 	}
 	.newUserInfoNo {
+		background-color: var(--bg);
 		position: fixed;
 		left: 5%;
 		top: 50%;
-		transform: translate(0, -50%);
+		transform: translate(0, -90%);
 		width: 90%;
 		height: 16%;
 		padding: 1vw;
 		border-radius: 5vw;
 		border: 2px var(--sec) solid;
 		font-size: 2rem;
-
 		animation: slideDown 2s;
 	}
 	@keyframes slideDown {
 		from {
-			left: 0%;
+			left: 5%;
 			opacity: 100%;
 		}
 		to {
