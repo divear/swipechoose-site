@@ -411,4 +411,40 @@ button:hover {
 		border-radius: 2vw;
 		padding: 2vw;
 	}
+	.newUserInfo {
+		position: fixed;
+		left: 5%;
+		top: 50%;
+		transform: translate(0, -50%);
+		width: 90%;
+		height: 16%;
+		padding: 1vw;
+		border-radius: 5vw;
+		border: 2px var(--sec) solid;
+		font-size: 2rem;
+	}
+	.newUserInfoNo {
+		position: fixed;
+		left: 5%;
+		top: 50%;
+		transform: translate(0, -50%);
+		width: 90%;
+		height: 16%;
+		padding: 1vw;
+		border-radius: 5vw;
+		border: 2px var(--sec) solid;
+		font-size: 2rem;
+
+		animation: slideDown 2s;
+	}
+	@keyframes slideDown {
+		from {
+			left: 0%;
+			opacity: 100%;
+		}
+		to {
+			left: 100%;
+			opacity: 0%;
+		}
+	}
 }
