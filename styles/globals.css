@@ -1,9 +1,10 @@
 :root {
 	--fr: white;
 	--bg: rgb(35, 33, 25);
-	--secbg: rgb(58, 56, 50);
+	--secbg: #3a3832;
 	--secbgSel: rgb(76, 73, 60);
-	--sec: rgb(215, 95, 9);
+	--sec: #d75f09;
+	--tri: #6e6a5e;
 }
 html,
 body {
@@ -284,7 +285,7 @@ button:hover {
 	opacity: 0.9;
 	z-index: 1;
 	border-radius: 1vw;
-	background-color: rgb(0, 0, 0);
+	background-color: var(--tri);
 }
 .imgTitle {
 	position: fixed;
@@ -292,7 +293,7 @@ button:hover {
 }
 .info1 {
 	position: fixed;
-	left: 5%;
+	left: 15%;
 	bottom: 0%;
 	background-color: var(--secbg);
 	border-radius: 0.5vw;
@@ -338,7 +339,7 @@ button:hover {
 		opacity: 100%;
 	}
 	to {
-		bottom: 0%;
+		bottom: -25%;
 		opacity: 0%;
 	}
 }
