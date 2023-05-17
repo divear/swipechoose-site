@@ -20,7 +20,8 @@
 		"**/*.ts",
 		"**/*.tsx",
 		"components/Meta.jsx",
-		"pages/user/[id].tsxd"
+		"pages/user/[id].tsxd",
+		"pages/novy.tsxd"
 	],
 	"exclude": ["node_modules"]
 }
