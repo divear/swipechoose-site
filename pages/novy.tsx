@@ -16,7 +16,7 @@ function Novy() {
 
 	useEffect(() => {
 		if (!window) return;
-		setCount(Number(localStorage.getItem("count")));
+		// setCount(Number(localStorage.getItem("count")));
 	}, []);
 
 	function submit(e: any) {
