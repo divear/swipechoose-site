@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Meta from "../components/Meta";
 import Nav from "../components/Nav";
 import { ref, getStorage, uploadBytes } from "../components/firebase";
@@ -12,6 +12,7 @@ function Novy() {
 	const [img, setImg] = useState<any>();
 	const [error, setError] = useState("");
 	const [imgLink, setImgLink] = useState("");
+	const [count, setCount] = useState(0);
 
 	function submit(e: any) {
 		e.preventDefault();
@@ -21,9 +22,9 @@ function Novy() {
 			setError("Title and image are mandatory");
 			return;
 		}
-		// console.log(imgLink);
-
-		// console.log(img.name);
+		useEffect(() => {
+			setCount(Number(localStorage.getItem("count")));
+		}, []);
 
 		const spaceRef = ref(storage, `imgs/${img.name}`);
 		uploadBytes(spaceRef, img).then(async (snapshot) => {
@@ -31,7 +32,7 @@ function Novy() {
 				console.log(img);
 				console.log(snapshot);
 
-				const Rid = { user_id: Number(localStorage.getItem("count")) };
+				const Rid = { user_id: count };
 				const Rtitle = { title };
 				const Rimg = { imgLink };
 
