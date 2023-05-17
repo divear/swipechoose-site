@@ -343,6 +343,11 @@ button:hover {
 		opacity: 0%;
 	}
 }
+.signInButton {
+	position: fixed;
+	right: 1%;
+	top: 1%;
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

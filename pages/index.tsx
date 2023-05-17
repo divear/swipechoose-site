@@ -31,9 +31,9 @@ export default function Home() {
 			}
 		}
 		getBlogs();
-		if (!localStorage.getItem("uid")) {
-			window.location.href = "signin";
-		}
+		// if (!localStorage.getItem("uid")) {
+		// 	window.location.href = "signin";
+		// }
 
 		function move(e: any) {
 			if (!searchNames[0]) {

@@ -7,10 +7,12 @@ function Nav() {
 	const [pfp, setPfp] = useState<any>("");
 	const [username, setUsername] = useState<any>("");
 	const [count, setCount] = useState<any>();
+	const [isSingedIn, setIsSingedIn] = useState(false);
 	useEffect(() => {
 		setPfp(localStorage.getItem("pfp"));
 		setUsername(localStorage.getItem("username"));
 		setCount(localStorage.getItem("count"));
+		setIsSingedIn(!!localStorage.getItem("uid"));
 	}, []);
 
 	return (
@@ -21,7 +23,7 @@ function Nav() {
 				</Link>
 				<div
 					onClick={() => (window.location.href = `/user/${count}`)}
-					className="profile"
+					className={localStorage.getItem("uid") ? "profile" : "no"}
 				>
 					<h2 className="floatLeft username">{username}</h2>
 					<img
@@ -35,6 +37,12 @@ function Nav() {
 						}
 					/>
 				</div>
+				<button
+					onClick={() => (window.location.href = "/signin")}
+					className={!isSingedIn ? "signInButton" : "no"}
+				>
+					sign in
+				</button>
 			</h1>
 		</div>
 	);

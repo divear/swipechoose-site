@@ -16,9 +16,11 @@ function Signin() {
 	console.log(serverDomain);
 
 	const [user, setUser] = useState<any>();
-	const [count, setCount] = useState(0);
+	const [s, setS] = useState(false);
 
 	function signin() {
+		if (s) return;
+		setS(true);
 		const provider = new GoogleAuthProvider();
 		signInWithPopup(auth, provider);
 	}
@@ -49,7 +51,6 @@ function Signin() {
 			const userCount = await userCountR.json();
 			console.log(userCount[0].count + 1);
 			localStorage.setItem("count", userCount[0].count + 1);
-			setCount(userCount[0].count + 1);
 
 			const arr = [Remail, Rusername, Rpfp, Rfollow];
 			const response = await fetch(`${serverDomain}users`, {
@@ -63,25 +64,17 @@ function Signin() {
 		localStorage.setItem("uid", user?.uid);
 		localStorage.setItem("username", user?.displayName);
 		localStorage.setItem("pfp", user?.photoURL);
-		console.log("set stor");
 	}, [user]);
 
 	return (
-		<div>
+		<div onClick={signin}>
 			<Meta title={"Sign in"} />
 			<h1 className="bigText">
 				Let&#39;s start with making a Swipechoose account
 			</h1>
 			<div className="signin">
-				<button className="bigButton" onClick={signin}>
-					Sign in
-				</button>
+				<button className="bigButton">Sign in</button>
 			</div>
-			<h1>{user?.displayName}</h1>
-			<h1>{user?.email}</h1>
-			<h1>{user?.photoURL}</h1>
-			<h1>{user?.uid}</h1>
-			<h1>{count}</h1>
 		</div>
 	);
 }

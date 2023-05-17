@@ -20,7 +20,7 @@ function Meta({ title, keywords, description }) {
 Meta.defaultProps = {
 	title: "Swipechoose",
 	keywords:
-		"test, site, programming, web, account, testing, zpravy, messages, divear, post, hello, swipe, choose, chose, chse, svipe ",
+		"swipechoose, schoose, odehnal, zpravy, messages, divear, post, hello, swipe, choose, chose, chse, svipe ",
 	description: "Swipechoose, the site for rating the best.",
 };
 
