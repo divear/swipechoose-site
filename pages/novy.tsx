@@ -14,6 +14,10 @@ function Novy() {
 	const [imgLink, setImgLink] = useState("");
 	const [count, setCount] = useState(0);
 
+	useEffect(() => {
+		setCount(Number(localStorage.getItem("count")));
+	}, []);
+
 	function submit(e: any) {
 		e.preventDefault();
 		console.log("submit");
@@ -22,9 +26,6 @@ function Novy() {
 			setError("Title and image are mandatory");
 			return;
 		}
-		useEffect(() => {
-			setCount(Number(localStorage.getItem("count")));
-		}, []);
 
 		const spaceRef = ref(storage, `imgs/${img.name}`);
 		uploadBytes(spaceRef, img).then(async (snapshot) => {
