@@ -23,7 +23,7 @@ function Nav() {
 				</Link>
 				<div
 					onClick={() => (window.location.href = `/user/${count}`)}
-					className={localStorage.getItem("uid") ? "profile" : "no"}
+					className={isSingedIn ? "profile" : "no"}
 				>
 					<h2 className="floatLeft username">{username}</h2>
 					<img
