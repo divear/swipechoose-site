@@ -30,9 +30,6 @@ function UserPage() {
 			}
 		}
 		getBlogs();
-		if (!localStorage.getItem("uid")) {
-			window.location.href = "signin";
-		}
 	}, []);
 	return (
 		<div>
