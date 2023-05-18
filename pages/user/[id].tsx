@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Meta from "../../components/Meta";
 import Nav from "../../components/Nav";
+import Image from "next/image";
+import point from "../../public/point.png";
 const serverDomain =
 	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
+
 function UserPage() {
 	const [data, setData] = useState<any>();
 	const [username, setUsername] = useState("");
@@ -48,12 +51,22 @@ function UserPage() {
 						data.map((d: any, i: number) => {
 							return (
 								<div key={i}>
-									{/* <h2>{d.title}</h2> */}
 									<img
 										className="userImage"
 										src={d.photo_url}
 										alt=""
 									/>
+									<div className="userLikeCount">
+										{d.title}
+										<div className="floatRight">
+											<Image
+												width={30}
+												src={point}
+												alt=" likes"
+											></Image>
+											{d.points}
+										</div>
+									</div>
 								</div>
 							);
 						})}

@@ -174,10 +174,12 @@ button:hover {
 	right: 1% !important;
 }
 .signoff {
+	position: fixed;
 	background-color: var(--sec);
+	bottom: 0%;
 	left: 0%;
 	font-size: 1rem;
-	padding: 0.5%;
+	padding: 0.2%;
 }
 .signoff:hover {
 	background-color: red;
@@ -259,6 +261,15 @@ button:hover {
 }
 .likeCount2 {
 	left: 80%;
+}
+.userLikeCount {
+	width: 90%;
+	min-height: 5vh;
+	font-size: 1.5rem;
+	bottom: 0%;
+	border-radius: 0.5vw;
+	padding: 0.5vw;
+	background-color: rgba(58, 56, 50, 0.27);
 }
 .endModal {
 	font-size: 5rem;
