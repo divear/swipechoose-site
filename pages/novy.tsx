@@ -3,8 +3,7 @@ import Meta from "../components/Meta";
 import Nav from "../components/Nav";
 import { ref, getStorage, uploadBytes } from "../components/firebase";
 
-const serverDomain =
-	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
+var serverDomain: string;
 const storage = getStorage();
 
 function Novy() {
@@ -15,6 +14,11 @@ function Novy() {
 	const [count, setCount] = useState(0);
 
 	useEffect(() => {
+		if (window.location.hostname != "localhost") {
+			serverDomain = "https://swipechoose.onrender.com/";
+		} else {
+			serverDomain = "http://localhost:4000/";
+		}
 		if (!window) return;
 		setCount(Number(localStorage.getItem("count")));
 	}, []);

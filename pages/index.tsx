@@ -4,7 +4,7 @@ import Nav from "../components/Nav";
 import Image from "next/image";
 import point from "../public/point.png";
 
-var serverDomain: any;
+var serverDomain: string;
 
 export default function Home() {
 	const [data, setData] = useState<any>();
