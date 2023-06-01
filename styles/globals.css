@@ -466,3 +466,17 @@ button:hover {
 		}
 	}
 }
+
+@media only screen and (max-height: 760px) {
+	.newUserInfo {
+		z-index: 9;
+		padding: 0.4vw;
+		font-size: 1.5rem;
+		height: 10vh;
+	}
+	.new {
+		padding: 1vw;
+		border-radius: 2vw;
+		font-size: 2.5rem;
+	}
+}
