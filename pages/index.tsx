@@ -147,21 +147,21 @@ export default function Home() {
 				<div className="pics">
 					{/* first */}
 					<img
-						onClick={() => pick(false, data[index + 1].id)}
+						onClick={() => pick(false, data[index].id)}
 						className="pickImage leftImage"
-						src={data[index + 1].photo_url}
+						src={data[index].photo_url}
 						alt="pic0"
 					/>
 					<div className="info1">
 						<div onClick={() => clickUser(1)} className="smallUser">
-							<img src={data[index + 1].pfp} alt="pfp" />
-							<h1>{data[index + 1].username}</h1>
+							<img src={data[index].pfp} alt="pfp" />
+							<h1>{data[index].username}</h1>
 						</div>
 						<div className="likeCount likeCount1">
 							<Image width={30} src={point} alt=" likes"></Image>
-							{data[index + 1].points}
+							{data[index].points}
 						</div>
-						<h1 className="">{data[index + 1].title}</h1>
+						<h1 className="">{data[index].title}</h1>
 					</div>
 					{/* new user info */}
 					<p className={index == 0 ? "newUserInfo" : "newUserInfoNo"}>
@@ -169,24 +169,24 @@ export default function Home() {
 					</p>{" "}
 					{/* second */}
 					<img
-						onClick={() => pick(true, data[index + 2].id)}
+						onClick={() => pick(true, data[index + 1].id)}
 						className="pickImage rightImage"
-						src={data[index + 2].photo_url}
+						src={data[index + 1].photo_url}
 						alt="pic1"
 					/>
 					<div className="info2">
 						<div onClick={() => clickUser(2)} className="smallUser">
-							<img src={data[index + 2].pfp} alt="pfp" />
-							<h1>{data[index + 2].username}</h1>
+							<img src={data[index + 1].pfp} alt="pfp" />
+							<h1>{data[index + 1].username}</h1>
 						</div>
 						<div className="likeCount likeCount2">
 							<Image width={30} src={point} alt=" likes"></Image>
-							{data[index + 2].points}
+							{data[index + 1].points}
 						</div>
-						<h1 className="">{data[index + 2].title}</h1>
+						<h1 className="">{data[index + 1].title}</h1>
 					</div>
 				</div>
-				<img className="no" src={data[index + 2].photo_url} alt="" />
+				<img className="no" src={data[index + 1].photo_url} alt="" />
 			</div>
 		);
 	} else {
