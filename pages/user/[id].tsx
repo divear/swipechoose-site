@@ -3,8 +3,8 @@ import Meta from "../../components/Meta";
 import Nav from "../../components/Nav";
 import Image from "next/image";
 import point from "../../public/point.png";
-const serverDomain =
-	"http://localhost:4000/" || "https://swipechoose.onrender.com/";
+
+var serverDomain: string;
 
 function UserPage() {
 	const [data, setData] = useState<any>();
@@ -12,6 +12,11 @@ function UserPage() {
 	const [pfp, setPfp] = useState("");
 	const [email, setEmail] = useState("");
 	useEffect(() => {
+		if (window.location.hostname != "localhost") {
+			serverDomain = "https://swipechoose.onrender.com/";
+		} else {
+			serverDomain = "http://localhost:4000/";
+		}
 		async function getBlogs() {
 			try {
 				const tid = window.location.pathname.replace("/user/", "");
