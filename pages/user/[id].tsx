@@ -11,6 +11,7 @@ function UserPage() {
 	const [username, setUsername] = useState("");
 	const [pfp, setPfp] = useState("");
 	const [email, setEmail] = useState("");
+	const [karma, setKarma] = useState(0);
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
@@ -32,6 +33,12 @@ function UserPage() {
 				setUsername(jsonData[0].username);
 				setPfp(jsonData[0].pfp);
 				setEmail(jsonData[0].email);
+				let k = 0;
+				jsonData.forEach((d: any, i: number) => {
+					k += d.points;
+				});
+				console.log(k);
+				setKarma(k);
 			} catch (error) {
 				console.log(error);
 			}
@@ -49,6 +56,7 @@ function UserPage() {
 					<div className="bigUsername">
 						<h1>{username}</h1>
 						<i>{email}</i>
+						<p className="floatRight">Karma: {karma}</p>
 					</div>
 				</div>
 				<div className="imgGrid">
