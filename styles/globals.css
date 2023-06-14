@@ -47,6 +47,24 @@ button:hover {
 		background: var(--bg);
 	}
 }
+@media (prefers-color-scheme: light) {
+	html {
+		color-scheme: light;
+	}
+	body {
+		color: var(--bg);
+		background: var(--fr);
+	}
+	.smallUser {
+		color: var(--fr);
+	}
+	.postTitle {
+		color: var(--fr);
+	}
+	.searchedModal {
+		color: var(--fr);
+	}
+}
 
 .navText {
 	font-size: 3rem;

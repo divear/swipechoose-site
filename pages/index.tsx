@@ -161,7 +161,7 @@ export default function Home() {
 							<Image width={30} src={point} alt=" likes"></Image>
 							{data[index].points}
 						</div>
-						<h1 className="">{data[index].title}</h1>
+						<h1 className="postTitle">{data[index].title}</h1>
 					</div>
 					{/* new user info */}
 					<p className={index == 0 ? "newUserInfo" : "newUserInfoNo"}>
@@ -183,7 +183,7 @@ export default function Home() {
 							<Image width={30} src={point} alt=" likes"></Image>
 							{data[index + 1].points}
 						</div>
-						<h1 className="">{data[index + 1].title}</h1>
+						<h1 className="postTitle">{data[index + 1].title}</h1>
 					</div>
 				</div>
 				<img className="no" src={data[index + 1].photo_url} alt="" />
