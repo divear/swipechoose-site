@@ -264,6 +264,7 @@ button:hover {
 	margin: 0;
 	border-radius: 2vw;
 	width: 2.5vw;
+	height: 2.5vw;
 	float: left;
 }
 .likeCount {
