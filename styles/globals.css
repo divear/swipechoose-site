@@ -350,6 +350,10 @@ button:hover {
 	border: 2px var(--sec) solid;
 	font-size: 2rem;
 }
+.notFound {
+	text-align: center;
+	font-size: 5rem;
+}
 .newUserInfoNo {
 	position: fixed;
 	left: 50%;
