@@ -1,21 +1,24 @@
 [x]site logo
 [x]server
-[]friends functionality
-[]pretty frontend
+[x] make the search work, when you click the username
+[x] make the like counter work
+[x] make a text box saying u ran out of posts to show
+[x] fix posts not having a user
+
+[] make signin not create a new user when he already has an account
+[] friends functionality
+[] pretty frontend
 [] responsive
 [] user profiles
         -user styling
-[x] make the search work, when you click the username
 [] make the select work properly
 [] fix weird bug while searching username
 
 
-[x] make the like counter work
-[x] make a text box saying u ran out of posts to show
-[x] fix posts not having a user
 [] hammerjs swipe
 [] google ads 
 [] mobile app
+[] loading bar
 
 
 

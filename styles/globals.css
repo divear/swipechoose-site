@@ -382,6 +382,12 @@ button:hover {
 	right: 1%;
 	top: 1%;
 }
+.loading {
+	text-align: center;
+}
+.loadbar {
+	background-color: red;
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

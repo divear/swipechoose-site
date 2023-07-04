@@ -12,6 +12,7 @@ export default function Home() {
 	const [searchNames, setSearchNames] = useState([]);
 	const [nameHovered, setNameHovered] = useState(0);
 	const [isEnd, setIsEnd] = useState(false);
+	const [loadProgress, setLoadProgress] = useState(0);
 
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
@@ -96,6 +97,9 @@ export default function Home() {
 	function clickUser(i: number) {
 		window.location.href = `/user/${data[index + i].user_id}`;
 	}
+	setInterval(function () {
+		setLoadProgress(loadProgress + 0.5);
+	}, 500);
 
 	if (data) {
 		return (
@@ -190,6 +194,13 @@ export default function Home() {
 			</div>
 		);
 	} else {
-		return <h1>Loading...</h1>;
+		return (
+			<div className="loading">
+				<h1>Loading...</h1>
+				<div style={{ width: `${loadProgress}%` }} className="loadbar">
+					‍‍
+				</div>
+			</div>
+		);
 	}
 }
