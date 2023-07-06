@@ -5,8 +5,10 @@
 [x] make a text box saying u ran out of posts to show
 [x] fix posts not having a user
 
+***[] friends functionality
+
+
 [] make signin not create a new user when he already has an account
-[] friends functionality
 [] pretty frontend
 [] responsive
 [] user profiles

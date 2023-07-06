@@ -99,10 +99,10 @@ button:hover {
 	margin: 0 0.4vw 0 0;
 }
 .bigUsername {
-	margin: 0.8vw;
+	margin: 0 0.8vw;
 }
 .pickImage {
-	margin: 7vh 0 0 0 !important;
+	margin: 1vh 0 0 0 !important;
 	border-radius: 1vw;
 	position: fixed;
 	width: 35%;
@@ -327,8 +327,9 @@ button:hover {
 	bottom: 0%;
 	background-color: var(--secbg);
 	border-radius: 0.5vw;
-	padding: 0.5vw;
+	padding: 0.2vw;
 	max-width: 19%;
+	min-width: 10%;
 }
 .info2 {
 	position: fixed;
@@ -338,6 +339,11 @@ button:hover {
 	border-radius: 0.5vw;
 	padding: 0.5vw;
 	max-width: 19%;
+	min-width: 10%;
+}
+.postTitle {
+	padding: 0.1vw !important;
+	margin: 0 !important;
 }
 .newUserInfo {
 	position: fixed;
@@ -387,6 +393,11 @@ button:hover {
 }
 .loadbar {
 	background-color: red;
+}
+.follow {
+	float: right;
+	padding: 0.5vw;
+	height: 20%;
 }
 /* mobile view */
 @media only screen and (max-width: 830px) {

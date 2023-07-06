@@ -28,7 +28,7 @@ function UserPage() {
 				console.log(`${serverDomain}users/${tid}`);
 
 				const jsonData = await response.json();
-				setData(jsonData);
+				setData(jsonData.reverse());
 				console.log(jsonData);
 				setUsername(jsonData[0].username);
 				setPfp(jsonData[0].pfp);
@@ -45,6 +45,21 @@ function UserPage() {
 		}
 		getBlogs();
 	}, []);
+	// when the follow button is pressed
+	async function follow() {
+		console.log("follow");
+		const signedUid = localStorage.getItem("count");
+		const followedUid = data[0].user_id;
+		console.log(signedUid, followedUid);
+		const getResponse = await fetch(`${serverDomain}users/${signedUid}`);
+		const jsonData = await getResponse.json();
+
+		const response = await fetch(`${serverDomain}users/${signedUid}`, {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(followedUid),
+		});
+	}
 	return (
 		<div>
 			<Nav />
@@ -56,8 +71,11 @@ function UserPage() {
 					<div className="bigUsername">
 						<h1>{username}</h1>
 						<i>{email}</i>
-						<p className="floatRight">Karma: {karma}</p>
+						<p className="">Karma: {karma}</p>
 					</div>
+					<button onClick={follow} className="follow">
+						follow
+					</button>
 				</div>
 				<div className="imgGrid">
 					{data &&
