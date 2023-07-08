@@ -6,7 +6,7 @@
 [x] fix posts not having a user
 
 ***[] friends functionality
-
+[] fix follow yourself
 
 [] make signin not create a new user when he already has an account
 [] pretty frontend

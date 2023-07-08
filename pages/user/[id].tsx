@@ -12,6 +12,7 @@ function UserPage() {
 	const [pfp, setPfp] = useState("");
 	const [email, setEmail] = useState("");
 	const [karma, setKarma] = useState(0);
+	const [isFollowed, setIsFollowed] = useState(false); //if the currently signed-in user follows this user
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
@@ -47,16 +48,19 @@ function UserPage() {
 	}, []);
 	// when the follow button is pressed
 	async function follow() {
-		console.log("follow");
+		setIsFollowed(true);
 		const signedUid = localStorage.getItem("count");
 		const followedUid = data[0].user_id;
 
 		const getResponse = await fetch(`${serverDomain}users/${signedUid}`);
 		const jsonData = await getResponse.json();
+		console.log(jsonData[0].following);
+
 		const following = JSON.parse(jsonData[0].following);
 		console.log(following);
 		following.push(followedUid);
 		console.log(following);
+		localStorage.setItem("following", following);
 
 		const response = await fetch(`${serverDomain}users/${signedUid}`, {
 			method: "PUT",
@@ -77,8 +81,12 @@ function UserPage() {
 						<i>{email}</i>
 						<p className="">Karma: {karma}</p>
 					</div>
-					<button onClick={follow} className="follow">
-						follow
+					<button
+						disabled={isFollowed ? true : false}
+						onClick={follow}
+						className="follow"
+					>
+						{isFollowed ? "followed" : "follow"}
 					</button>
 				</div>
 				<div className="imgGrid">

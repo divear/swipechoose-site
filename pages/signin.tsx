@@ -43,7 +43,7 @@ function Signin() {
 			const Remail = user?.email;
 			const Rpfp = user?.photoURL;
 			const Rusername = user?.displayName;
-			const Rfollow = "[0, 0]";
+			const Rfollow = "[]";
 			// const id = user?.uid;
 			console.log(user);
 
