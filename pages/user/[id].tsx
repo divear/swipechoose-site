@@ -50,14 +50,18 @@ function UserPage() {
 		console.log("follow");
 		const signedUid = localStorage.getItem("count");
 		const followedUid = data[0].user_id;
-		console.log(signedUid, followedUid);
+
 		const getResponse = await fetch(`${serverDomain}users/${signedUid}`);
 		const jsonData = await getResponse.json();
+		const following = JSON.parse(jsonData[0].following);
+		console.log(following);
+		following.push(followedUid);
+		console.log(following);
 
 		const response = await fetch(`${serverDomain}users/${signedUid}`, {
-			method: "POST",
+			method: "PUT",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify(followedUid),
+			body: JSON.stringify(following),
 		});
 	}
 	return (
