@@ -3,6 +3,7 @@ import Meta from "../../components/Meta";
 import Nav from "../../components/Nav";
 import Image from "next/image";
 import point from "../../public/point.png";
+import Link from "next/link";
 
 var serverDomain: string;
 
@@ -11,8 +12,11 @@ function UserPage() {
 	const [username, setUsername] = useState("");
 	const [pfp, setPfp] = useState("");
 	const [email, setEmail] = useState("");
+	const [following, setFollowing] = useState("");
 	const [karma, setKarma] = useState(0);
 	const [isFollowed, setIsFollowed] = useState(false); //if the currently signed-in user follows this user
+	const [isNoPosts, setIsNoPosts] = useState(false);
+	const [id, setId] = useState("");
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
@@ -23,17 +27,33 @@ function UserPage() {
 			try {
 				const tid = window.location.pathname.replace("/user/", "");
 
-				console.log(tid);
-
+				setId(tid);
 				const response = await fetch(`${serverDomain}users/${tid}`);
 				console.log(`${serverDomain}users/${tid}`);
 
 				const jsonData = await response.json();
 				setData(jsonData.reverse());
 				console.log(jsonData);
+				//check for no posts
+				if (!jsonData[0]) {
+					console.log("no posts");
+
+					setIsNoPosts(true);
+				}
+
+				//check for follow
+				if (
+					localStorage
+						.getItem("following")
+						?.includes(jsonData[0].user_id)
+				) {
+					setIsFollowed(true);
+					console.log("already following");
+				}
 				setUsername(jsonData[0].username);
 				setPfp(jsonData[0].pfp);
 				setEmail(jsonData[0].email);
+				setFollowing(jsonData[0].following);
 				let k = 0;
 				jsonData.forEach((d: any, i: number) => {
 					k += d.points;
@@ -51,6 +71,10 @@ function UserPage() {
 		setIsFollowed(true);
 		const signedUid = localStorage.getItem("count");
 		const followedUid = data[0].user_id;
+		if (signedUid == followedUid) {
+			alert("You can't follow yourself");
+			return;
+		}
 
 		const getResponse = await fetch(`${serverDomain}users/${signedUid}`);
 		const jsonData = await getResponse.json();
@@ -68,6 +92,8 @@ function UserPage() {
 			body: JSON.stringify(following),
 		});
 	}
+	console.log(following);
+
 	return (
 		<div>
 			<Nav />
@@ -88,7 +114,15 @@ function UserPage() {
 					>
 						{isFollowed ? "followed" : "follow"}
 					</button>
+					<div className="follows">
+						<h5>
+							Follows&nbsp;
+							{following && JSON.parse(following).length}
+							&nbsp;people
+						</h5>
+					</div>
 				</div>
+				<h1>{isNoPosts ? "This user has no posts yet" : ""}</h1>
 				<div className="imgGrid">
 					{data &&
 						data.map((d: any, i: number) => {

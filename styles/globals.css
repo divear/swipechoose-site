@@ -17,6 +17,7 @@ body {
 a {
 	color: inherit;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 * {
@@ -227,6 +228,7 @@ button:hover {
 }
 .userImage {
 	width: 90%;
+	background-image: url("https://firebasestorage.googleapis.com/v0/b/picture-database.appspot.com/o/images%2Fbpfp.jpg?alt=media");
 }
 .searchbar {
 	text-align: center;
@@ -398,6 +400,12 @@ button:hover {
 	float: right;
 	padding: 0.5vw;
 	height: 20%;
+}
+.follows {
+	width: 500%;
+	padding: 2vw;
+	font-size: 2rem;
+	display: inline-flexbox;
 }
 /* mobile view */
 @media only screen and (max-width: 830px) {

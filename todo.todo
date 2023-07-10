@@ -4,6 +4,7 @@
 [x] make the like counter work
 [x] make a text box saying u ran out of posts to show
 [x] fix posts not having a user
+[x] user profiles
 
 ***[] friends functionality
 [] fix follow yourself
@@ -11,8 +12,6 @@
 [] make signin not create a new user when he already has an account
 [] pretty frontend
 [] responsive
-[] user profiles
-        -user styling
 [] make the select work properly
 [] fix weird bug while searching username
 
@@ -20,7 +19,7 @@
 [] hammerjs swipe
 [] google ads 
 [] mobile app
-[] loading bar
+[x] loading bar
 
 
 
