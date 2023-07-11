@@ -86,7 +86,12 @@ button:hover {
 	float: left;
 }
 .pfp {
-	border-radius: 2vw;
+	border-radius: 20vw;
+	position: absolute;
+	left: 2%;
+}
+.smallPfp {
+	border-radius: 20vw;
 }
 .profile {
 	cursor: pointer;
@@ -217,6 +222,8 @@ button:hover {
 	height: 4vw;
 }
 .userInfo {
+	background-color: var(--secbg);
+	border-radius: 1vw;
 	margin: 0 7vw;
 	display: flex;
 	width: 30%;
@@ -399,7 +406,10 @@ button:hover {
 .follow {
 	float: right;
 	padding: 0.5vw;
-	height: 20%;
+	height: 60%;
+}
+.follow * {
+	margin: 8vw;
 }
 .follows {
 	width: 500%;

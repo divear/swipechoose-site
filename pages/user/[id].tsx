@@ -16,7 +16,7 @@ function UserPage() {
 	const [karma, setKarma] = useState(0);
 	const [isFollowed, setIsFollowed] = useState(false); //if the currently signed-in user follows this user
 	const [isNoPosts, setIsNoPosts] = useState(false);
-	const [id, setId] = useState("");
+	const [isMine, setIsMine] = useState(false);
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
@@ -26,8 +26,10 @@ function UserPage() {
 		async function getBlogs() {
 			try {
 				const tid = window.location.pathname.replace("/user/", "");
-
-				setId(tid);
+				if (tid == localStorage.getItem("count")) {
+					setIsMine(true);
+					console.log("mine");
+				}
 				const response = await fetch(`${serverDomain}users/${tid}`);
 				console.log(`${serverDomain}users/${tid}`);
 
@@ -106,20 +108,20 @@ function UserPage() {
 						<h1>{username}</h1>
 						<i>{email}</i>
 						<p className="">Karma: {karma}</p>
-					</div>
-					<button
-						disabled={isFollowed ? true : false}
-						onClick={follow}
-						className="follow"
-					>
-						{isFollowed ? "followed" : "follow"}
-					</button>
-					<div className="follows">
-						<h5>
+						<p>
 							Follows&nbsp;
 							{following && JSON.parse(following).length}
 							&nbsp;people
-						</h5>
+						</p>
+					</div>
+					<div className="follows">
+						<button
+							disabled={isFollowed ? true : false}
+							onClick={follow}
+							className={isMine ? "no" : "follow"}
+						>
+							{isFollowed ? "followed" : "follow"}
+						</button>
 					</div>
 				</div>
 				<h1>{isNoPosts ? "This user has no posts yet" : ""}</h1>

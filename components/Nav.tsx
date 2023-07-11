@@ -29,7 +29,7 @@ function Nav() {
 					<img
 						width={50}
 						height={50}
-						className="pfp"
+						className="smallPfp"
 						alt="pfp"
 						src={
 							pfp ||
