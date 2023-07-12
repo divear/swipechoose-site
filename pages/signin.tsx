@@ -58,7 +58,20 @@ function Signin() {
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(arr),
 			});
-			console.log(response);
+			const boilerPost = await fetch(`${serverDomain}posts`, {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify([
+					{ user_id: userCount[0].count + 1 },
+					{ title: "Hi, I'm new to swipechoose!" },
+					{
+						imgLink:
+							"https://firebasestorage.googleapis.com/v0/b/picture-database.appspot.com/o/images%2FnewUser.png?alt=media",
+					},
+				]),
+			});
+			console.log(boilerPost);
+
 			window.location.href = "/";
 		})();
 		localStorage.setItem("uid", user?.uid);

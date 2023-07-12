@@ -8,6 +8,8 @@
 
 ***[] friends functionality
 [] fix follow yourself
+[] fix welcome message not having the user info
+[] filter new to swipechoose pics
 
 [] make signin not create a new user when he already has an account
 [] pretty frontend

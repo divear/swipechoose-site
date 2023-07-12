@@ -77,9 +77,17 @@ function UserPage() {
 			alert("You can't follow yourself");
 			return;
 		}
+		if (!signedUid) {
+			alert("You have to sign in first");
+			return;
+		}
 
 		const getResponse = await fetch(`${serverDomain}users/${signedUid}`);
 		const jsonData = await getResponse.json();
+		console.log(getResponse);
+
+		console.log(jsonData);
+
 		console.log(jsonData[0].following);
 
 		const following = JSON.parse(jsonData[0].following);
@@ -93,6 +101,12 @@ function UserPage() {
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(following),
 		});
+		const newFollower = await fetch(
+			`${serverDomain}follower/${followedUid}`,
+			{
+				method: "PUT",
+			}
+		);
 	}
 	console.log(following);
 
