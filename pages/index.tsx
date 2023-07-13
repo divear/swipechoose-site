@@ -95,7 +95,7 @@ export default function Home() {
 		});
 	}
 	function clickUser(i: number) {
-		window.location.href = `/user/${data[index + i].user_id}`;
+		window.location.href = `/user/${data[index + i - 1].user_id}`;
 	}
 	setInterval(function () {
 		setLoadProgress(loadProgress + 0.5);
