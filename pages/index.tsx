@@ -156,7 +156,7 @@ export default function Home() {
 						src={data[index].photo_url}
 						alt="pic0"
 					/>
-					<div className="info1">
+					<div className="info info1">
 						<div onClick={() => clickUser(1)} className="smallUser">
 							<img src={data[index].pfp} alt="pfp" />
 							<h1>{data[index].username}</h1>
@@ -178,7 +178,7 @@ export default function Home() {
 						src={data[index + 1].photo_url}
 						alt="pic1"
 					/>
-					<div className="info2">
+					<div className="info info2">
 						<div onClick={() => clickUser(2)} className="smallUser">
 							<img src={data[index + 1].pfp} alt="pfp" />
 							<h1>{data[index + 1].username}</h1>

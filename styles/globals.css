@@ -330,30 +330,34 @@ button:hover {
 	position: fixed;
 	bottom: 0%;
 }
-.info1 {
+.info {
 	position: fixed;
-	left: 15%;
-	bottom: 0%;
 	background-color: var(--secbg);
 	border-radius: 0.5vw;
 	padding: 0.2vw;
 	max-width: 19%;
-	min-width: 10%;
+	min-width: 14%;
+}
+.info1 {
+	right: 65%;
+	bottom: 0%;
 }
 .info2 {
-	position: fixed;
 	right: 20%;
 	bottom: 0%;
-	background-color: var(--secbg);
-	border-radius: 0.5vw;
-	padding: 0.5vw;
-	max-width: 19%;
-	min-width: 10%;
 }
 .postTitle {
 	padding: 0.1vw !important;
 	margin: 0 !important;
+	background-color: var(--secbg);
+	overflow: clip;
+	display: block;
+	word-break: normal;
 }
+.postTitle:hover {
+	overflow: visible;
+}
+
 .newUserInfo {
 	position: fixed;
 	left: 50%;
