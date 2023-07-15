@@ -5,10 +5,12 @@
 [x] make a text box saying u ran out of posts to show
 [x] fix posts not having a user
 [x] user profiles
+[x] fix follow yourself
+[x] fix welcome message not having the user info
+
 
 ***[] friends functionality
-[] fix follow yourself
-[] fix welcome message not having the user info
+[x] show followers
 [] filter new to swipechoose pics
 
 [] make signin not create a new user when he already has an account

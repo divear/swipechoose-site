@@ -13,6 +13,7 @@ function UserPage() {
 	const [pfp, setPfp] = useState("");
 	const [email, setEmail] = useState("");
 	const [following, setFollowing] = useState("");
+	const [followers, setFollowers] = useState(0);
 	const [karma, setKarma] = useState(0);
 	const [isFollowed, setIsFollowed] = useState(false); //if the currently signed-in user follows this user
 	const [isNoPosts, setIsNoPosts] = useState(false);
@@ -56,6 +57,7 @@ function UserPage() {
 				setPfp(jsonData[0].pfp);
 				setEmail(jsonData[0].email);
 				setFollowing(jsonData[0].following);
+				setFollowers(jsonData[0].followers);
 				let k = 0;
 				jsonData.forEach((d: any, i: number) => {
 					k += d.points;
@@ -122,10 +124,14 @@ function UserPage() {
 						<h1>{username}</h1>
 						<i>{email}</i>
 						<p className="">Karma: {karma}</p>
+						<p className="">Followers: {followers}</p>
 						<p>
 							Follows&nbsp;
 							{following && JSON.parse(following).length}
-							&nbsp;people
+							&nbsp;
+							{following && JSON.parse(following).length == 1
+								? "person"
+								: "people"}
 						</p>
 					</div>
 					<div className="follows">
