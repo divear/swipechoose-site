@@ -421,6 +421,15 @@ button:hover {
 	font-size: 2rem;
 	display: inline-flexbox;
 }
+.links {
+	margin: 0 1vw;
+	position: absolute;
+	top: 100%;
+	right: -80%;
+}
+.links * {
+	margin: 1vw;
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

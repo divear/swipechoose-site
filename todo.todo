@@ -11,7 +11,7 @@
 
 ***[] friends functionality
 [x] show followers
-[] filter new to swipechoose pics
+[] filter "new to swipechoose" pics
 
 [] make signin not create a new user when he already has an account
 [] pretty frontend
