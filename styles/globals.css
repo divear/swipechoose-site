@@ -1,5 +1,5 @@
 :root {
-	--fr: white;
+	--fr: #ffffff;
 	--bg: rgb(35, 33, 25);
 	--secbg: #3a3832;
 	--secbgSel: rgb(76, 73, 60);
@@ -196,19 +196,6 @@ button:hover {
 .footerText {
 	position: fixed;
 	right: 1% !important;
-}
-.signoff {
-	position: fixed;
-	background-color: var(--sec);
-	bottom: 0%;
-	left: 0%;
-	font-size: 1rem;
-	padding: 0.2%;
-}
-.signoff:hover {
-	background-color: red;
-	border-radius: 0.2vw;
-	filter: grayscale(0.2);
 }
 .imgTitle1 {
 	left: 5%;
@@ -422,13 +409,25 @@ button:hover {
 	display: inline-flexbox;
 }
 .links {
-	margin: 0 1vw;
 	position: absolute;
 	top: 100%;
-	right: -80%;
+	right: -45%;
 }
 .links * {
-	margin: 1vw;
+	margin: 1vw 0;
+}
+.links * :hover {
+	filter: invert(0.2);
+}
+.signoff {
+	background-color: var(--sec);
+	font-size: 1rem;
+	padding: 5%;
+	margin: 0;
+}
+.signoff:hover {
+	padding: 5%;
+	margin: 0;
 }
 /* mobile view */
 @media only screen and (max-width: 830px) {

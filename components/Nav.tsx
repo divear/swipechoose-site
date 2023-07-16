@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import logo from "../public/logo.png";
+import settings from "../public/settings.svg";
 import { signOut, auth } from "../components/firebase";
 
 function Nav() {
@@ -36,11 +37,13 @@ function Nav() {
 					<div className="links">
 						<button
 							onClick={signoff}
-							className={isSingedIn ? "" : "no"}
+							className={isSingedIn ? "signoff" : "no"}
 						>
 							sign off
 						</button>
-						<Link href={"/settings"}>Settings</Link>
+						<Link href={"/settings"}>
+							<Image width={50} src={settings} alt="Settings" />
+						</Link>
 					</div>
 					<img
 						width={50}
