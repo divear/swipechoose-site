@@ -17,9 +17,7 @@ function Nav() {
 		setIsSingedIn(!!localStorage.getItem("uid"));
 	}, []);
 	function signoff() {
-		// const provider = new GoogleAuthProvider();
 		signOut(auth);
-
 		localStorage.clear();
 		window.location.reload();
 	}
@@ -30,10 +28,7 @@ function Nav() {
 				<Link className="logo" href="/">
 					<Image className="logo" src={logo} alt="logo" />
 				</Link>
-				<div
-					onClick={() => (window.location.href = `/user/${count}`)}
-					className={isSingedIn ? "profile" : "no"}
-				>
+				<div className={isSingedIn ? "profile" : "no"}>
 					<div className="links">
 						<button
 							onClick={signoff}
@@ -41,18 +36,25 @@ function Nav() {
 						>
 							sign off
 						</button>
-						<Link href={"/settings"}>
-							<Image width={50} src={settings} alt="Settings" />
-						</Link>
+						<Image
+							onClick={() => (window.location.href = "/settings")}
+							width={50}
+							src={settings}
+							alt="Settings"
+						/>
 					</div>
-					<img
+					<Image
+						onClick={() =>
+							(window.location.href = `/user/${count}`)
+						}
+						title={username}
 						width={50}
 						height={50}
 						className="smallPfp"
 						alt="pfp"
 						src={
 							pfp ||
-							"https://i.pinimg.com/originals/91/2c/e1/912ce19bfeadb1e9e2b7cee8f0a4f1bc.jpg"
+							"https://firebasestorage.googleapis.com/v0/b/picture-database.appspot.com/o/images%2F6525a08f1df98a2e3a545fe2ace4be47.jpg?alt=media"
 						}
 					/>
 				</div>

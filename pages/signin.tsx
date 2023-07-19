@@ -63,7 +63,7 @@ function Signin() {
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify([
 					{ user_id: userCount[0].count + 1 },
-					{ title: "Hi, I'm new to swipechoose!" },
+					{ title: "Hi, I'm new to Swipechoose!" },
 					{
 						imgLink:
 							"https://firebasestorage.googleapis.com/v0/b/picture-database.appspot.com/o/images%2FnewUser.png?alt=media",
@@ -77,6 +77,7 @@ function Signin() {
 		localStorage.setItem("uid", user?.uid);
 		localStorage.setItem("username", user?.displayName);
 		localStorage.setItem("pfp", user?.photoURL);
+		localStorage.setItem("wantsWelcome", "true");
 	}, [user]);
 
 	return (

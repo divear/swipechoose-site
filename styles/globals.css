@@ -429,6 +429,18 @@ button:hover {
 	padding: 5%;
 	margin: 0;
 }
+.settings {
+	font-size: 3rem;
+	float: right;
+	margin: 2vw;
+	padding: 2vw;
+	border-radius: 2vw;
+	background-color: var(--secbg);
+}
+.checkbox {
+	scale: 3;
+	margin: 0 2vw;
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

@@ -26,15 +26,24 @@ export default function Home() {
 				const jsonData = await response.json();
 				console.log(jsonData);
 
+				//check if the user wants the welcome posts
+				if (localStorage.getItem("wantsWelcome") === "false") {
+					setData(
+						jsonData
+							.filter(
+								(d: any) =>
+									d.title != "Hi, I'm new to Swipechoose!"
+							)
+							.reverse()
+					);
+					return;
+				}
 				setData(jsonData.reverse());
 			} catch (error) {
 				console.log(error);
 			}
 		}
 		getBlogs();
-		// if (!localStorage.getItem("uid")) {
-		// 	window.location.href = "signin";
-		// }
 
 		function move(e: any) {
 			if (!searchNames[0]) {
