@@ -124,9 +124,9 @@ export default function Home() {
 				<div className={isEnd ? "endModal" : "no"}>
 					<h1>u ran out of posts, buddy</h1>
 				</div>
-				<div className="sorting">
+				{/* <div className="sorting">
 					<button>For you</button>/ <button>Following</button>
-				</div>
+				</div> */}
 				<div className={searchNames[0] ? "searchedModal" : "no"}>
 					{searchNames &&
 						searchNames.map((d: any, i: number) => {
