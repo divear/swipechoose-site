@@ -441,6 +441,13 @@ button:hover {
 	scale: 3;
 	margin: 0 2vw;
 }
+.sorting {
+	text-align: center;
+	font-size: 2rem;
+}
+.sorting * {
+	margin: 0 0.5vw;
+}
 /* mobile view */
 @media only screen and (max-width: 830px) {
 	* {

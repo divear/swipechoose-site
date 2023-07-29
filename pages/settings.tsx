@@ -21,7 +21,8 @@ function Settings() {
 					type="checkbox"
 					// checked={welc}
 				/>
-				Show the <i>"Hi, I'm new to Swipechoose!" </i> posts
+				Show the <i>&quot;Hi, I&apos;m new to Swipechoose!&quot; </i>{" "}
+				posts
 			</p>
 		</div>
 	);
