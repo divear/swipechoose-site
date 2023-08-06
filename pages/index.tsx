@@ -13,8 +13,14 @@ export default function Home() {
 	const [nameHovered, setNameHovered] = useState(0);
 	const [isEnd, setIsEnd] = useState(false);
 	const [loadProgress, setLoadProgress] = useState(0);
+	const [sort, setSort] = useState(false);
+
 
 	useEffect(() => {
+		setSort(localStorage.getItem("sort") == "true" ? true : false);
+		console.log(sort)
+
+
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
 		} else {
@@ -34,6 +40,17 @@ export default function Home() {
 								(d: any) =>
 									d.title != "Hi, I'm new to Swipechoose!"
 							)
+							.reverse()
+					);
+					return;
+				}
+				if (sort) {
+					console.log(localStorage.getItem("following"));
+					const fol = localStorage.getItem("following");
+
+					setData(
+						jsonData
+							.filter((d: any) => fol?.includes(d.user_id))
 							.reverse()
 					);
 					return;
@@ -124,9 +141,8 @@ export default function Home() {
 				<div className={isEnd ? "endModal" : "no"}>
 					<h1>u ran out of posts, buddy</h1>
 				</div>
-				{/* <div className="sorting">
-					<button>For you</button>/ <button>Following</button>
-				</div> */}
+
+
 				<div className={searchNames[0] ? "searchedModal" : "no"}>
 					{searchNames &&
 						searchNames.map((d: any, i: number) => {

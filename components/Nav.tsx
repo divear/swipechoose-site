@@ -3,7 +3,6 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import logo from "../public/logo.png";
 import settings from "../public/settings.svg";
-import { signOut, auth } from "../components/firebase";
 
 function Nav() {
 	const [pfp, setPfp] = useState<any>("");
@@ -16,11 +15,6 @@ function Nav() {
 		setCount(localStorage.getItem("count"));
 		setIsSingedIn(!!localStorage.getItem("uid"));
 	}, []);
-	function signoff() {
-		signOut(auth);
-		localStorage.clear();
-		window.location.reload();
-	}
 
 	return (
 		<div>
@@ -30,12 +24,6 @@ function Nav() {
 				</Link>
 				<div className={isSingedIn ? "profile" : "no"}>
 					<div className="links">
-						<button
-							onClick={signoff}
-							className={isSingedIn ? "signoff" : "no"}
-						>
-							sign off
-						</button>
 						<Image
 							onClick={() => (window.location.href = "/settings")}
 							width={50}

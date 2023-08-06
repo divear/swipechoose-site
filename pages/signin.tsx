@@ -87,7 +87,7 @@ function Signin() {
 				Let&#39;s start with making a Swipechoose account
 			</h1>
 			<div className="signin">
-				<button className="bigButton">Sign in</button>
+				<button className="bigButton">Sign in with Google</button>
 			</div>
 		</div>
 	);

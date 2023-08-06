@@ -411,7 +411,7 @@ button:hover {
 .links {
 	position: absolute;
 	top: 100%;
-	right: -45%;
+	right: 0%;
 }
 .links * {
 	margin: 1vw 0;
@@ -421,21 +421,27 @@ button:hover {
 }
 .signoff {
 	background-color: var(--sec);
-	font-size: 1rem;
-	padding: 5%;
 	margin: 0;
+}
+.signoffSvg {
+	margin: 0 1vw !important;
+	padding: 0;
 }
 .signoff:hover {
-	padding: 5%;
-	margin: 0;
+	padding: 1%;
 }
 .settings {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
 	font-size: 3rem;
-	float: right;
 	margin: 2vw;
-	padding: 2vw;
+	padding: 1vw;
 	border-radius: 2vw;
 	background-color: var(--secbg);
+}
+.settings * {
+	margin: 1.5vw 0;
 }
 .checkbox {
 	scale: 3;
@@ -553,6 +559,23 @@ button:hover {
 			left: 100%;
 			opacity: 0%;
 		}
+	}
+	.bigText {
+		font-size: 3rem;
+	}
+	.bigButton {
+		font-size: 5rem;
+		padding: 0.2vw;
+		margin: 5vw;
+	}
+	.links {
+		position: absolute;
+		top: 100%;
+		right: 5%;
+		height: 0%;
+	}
+	.links * {
+		margin: 0vw 0;
 	}
 }
 
