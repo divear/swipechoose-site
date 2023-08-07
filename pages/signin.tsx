@@ -7,6 +7,8 @@ import {
 	signOut,
 } from "../components/firebase";
 import Meta from "../components/Meta";
+import Image from "next/image";
+import googleImg from "../public/google.svg"
 
 // console.log(window.location.hostname);
 
@@ -87,7 +89,9 @@ function Signin() {
 				Let&#39;s start with making a Swipechoose account
 			</h1>
 			<div className="signin">
-				<button className="bigButton">Sign in with Google</button>
+				<button className="bigButton">
+					<Image src={googleImg} width={50} alt="G" />
+					Sign in with Google</button>
 			</div>
 		</div>
 	);

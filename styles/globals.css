@@ -2,9 +2,11 @@
 	--fr: #ffffff;
 	--bg: rgb(35, 33, 25);
 	--secbg: #3a3832;
-	--secbgSel: rgb(76, 73, 60);
+	--secbgSel: rgb(77, 74, 61);
+	--blu: #0074cc;
 	--sec: #d75f09;
 	--tri: #6e6a5e;
+	--qua: #d79609;
 }
 html,
 body {
@@ -35,9 +37,11 @@ button {
 }
 button:hover {
 	border-radius: 0.2vw;
-
 	padding: 0.51vw;
 	filter: grayscale(0.2);
+}
+.secButt {
+	background-color: var(--qua);
 }
 @media (prefers-color-scheme: dark) {
 	html {
@@ -154,6 +158,8 @@ button:hover {
 	border-radius: 1vw;
 	padding: 1vw;
 	margin: auto;
+	background-color: white;
+	color: var(--blu);
 }
 .signin {
 	display: flex;
@@ -576,6 +582,24 @@ button:hover {
 	}
 	.links * {
 		margin: 0vw 0;
+	}
+	.settings {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		font-size: 1rem;
+		margin: 2vw;
+		padding: 2vw;
+		border-radius: 2vw;
+		background-color: var(--secbg);
+	}
+	.settings * {
+		margin: 5vw 0;
+		font-size: 2rem !important;
+	}
+	.checkbox {
+		scale: 2;
+		margin: 0 4vw;
 	}
 }
 
