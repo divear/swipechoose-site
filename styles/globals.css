@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Heebo&family=Inter:wght@100;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Catamaran:wght@500&display=swap");
 :root {
 	--fr: #ffffff;
 	--bg: rgb(35, 33, 25);
@@ -12,8 +14,7 @@ html,
 body {
 	padding: 0;
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: "Catamaran", sans-serif;
 }
 
 a {
@@ -24,6 +25,7 @@ a {
 
 * {
 	box-sizing: border-box;
+	font-family: "Catamaran", sans-serif;
 }
 
 button {
@@ -491,7 +493,7 @@ button:hover {
 		left: 50%;
 		transform: translate(-100%, 0);
 
-		height: 6%;
+		height: 8%;
 		border-radius: 100vw;
 		padding: 0 0.4vw;
 	}
@@ -536,7 +538,7 @@ button:hover {
 		top: 50%;
 		transform: translate(0, -90%);
 		width: 90%;
-		height: 16%;
+		height: 20%;
 		padding: 1vw;
 		border-radius: 5vw;
 		border: 2px var(--sec) solid;
@@ -594,7 +596,7 @@ button:hover {
 		background-color: var(--secbg);
 	}
 	.settings * {
-		margin: 5vw 0;
+		margin: 1vh 0;
 		font-size: 2rem !important;
 	}
 	.checkbox {
