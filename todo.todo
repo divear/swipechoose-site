@@ -1,5 +1,5 @@
-[x]site logo
-[x]server
+[x] site logo
+[x] server
 [x] make the search work, when you click the username
 [x] make the like counter work
 [x] make a text box saying u ran out of posts to show
@@ -7,13 +7,14 @@
 [x] user profiles
 [x] fix follow yourself
 [x] fix welcome message not having the user info
-
-
-***[] friends functionality
+[x] loading bar
+[x] make the user save his simple id to localstorage
 [x] show followers
 [x] filter "new to swipechoose" pics
 
+***[] friends functionality
 [] make signin not create a new user when he already has an account
+[] followers page
 [] pretty frontend
 [] responsive
 [] make the select work properly
@@ -27,8 +28,3 @@
 [] hammerjs swipe
 [] google ads 
 [] mobile app
-[x] loading bar
-
-
-
-[x] make the user save his simple id to localstorage
