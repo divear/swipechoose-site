@@ -15,6 +15,14 @@ export default function Home() {
 	const [loadProgress, setLoadProgress] = useState(0);
 	const [sort, setSort] = useState(false);
 
+	function shuffle(a: any) {
+		for (let i = a.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[a[i], a[j]] = [a[j], a[i]];
+		}
+		return a;
+	}
+
 
 	useEffect(() => {
 		setSort(localStorage.getItem("sort") == "true" ? true : false);
@@ -35,12 +43,13 @@ export default function Home() {
 				//check if the user wants the welcome posts
 				if (localStorage.getItem("wantsWelcome") === "false") {
 					setData(
-						jsonData
-							.filter(
-								(d: any) =>
-									d.title != "Hi, I'm new to Swipechoose!"
-							)
-							.reverse()
+						shuffle(
+							jsonData
+								.filter(
+									(d: any) =>
+										d.title != "Hi, I'm new to Swipechoose!"
+								)
+						)
 					);
 					return;
 				}

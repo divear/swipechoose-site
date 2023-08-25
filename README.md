@@ -6,3 +6,4 @@
 
 Social media website where likes aren't used.
 Users are forced to choose between two photos and choose the better one.
+The order is also random so you can get set against any post on the site!
