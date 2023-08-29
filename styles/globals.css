@@ -305,6 +305,13 @@ button:hover {
 	background-color: var(--sec);
 	border-radius: 2rem;
 }
+.smallUser {
+	font-size: 0.7rem;
+	opacity: 0.9;
+	z-index: 1;
+	border-radius: 1vw;
+	background-color: var(--tri);
+}
 .smallUser img {
 	border-radius: 2vw;
 	width: 1.5vw;
@@ -314,12 +321,25 @@ button:hover {
 	display: inline-block;
 	margin: 0 0.2vw;
 }
-.smallUser {
-	font-size: 0.7rem;
+.listUser {
+	display: flex;
+	margin: 0.4vh 0;
 	opacity: 0.9;
-	z-index: 1;
-	border-radius: 1vw;
+	border-radius: 10vw 5vw 5vw 10vw;
 	background-color: var(--tri);
+}
+.listUser img {
+	border-radius: 2vw;
+}
+.listUser * {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 0.2vw;
+}
+.seeMore {
+	display: block;
+	text-align: center;
+	font-size: 1.5rem;
 }
 .imgTitle {
 	position: fixed;
@@ -461,6 +481,10 @@ button:hover {
 }
 .sorting * {
 	margin: 0 0.5vw;
+}
+.followingPeople {
+	position: absolute;
+	right: 50%;
 }
 /* mobile view */
 @media only screen and (max-width: 830px) {

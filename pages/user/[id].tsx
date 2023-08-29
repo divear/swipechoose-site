@@ -18,6 +18,7 @@ function UserPage() {
 	const [isFollowed, setIsFollowed] = useState(false); //if the currently signed-in user follows this user
 	const [isNoPosts, setIsNoPosts] = useState(false);
 	const [isMine, setIsMine] = useState(false);
+	const [followingList, setFollowingList] = useState<any>([])
 	useEffect(() => {
 		if (window.location.hostname != "localhost") {
 			serverDomain = "https://swipechoose.onrender.com/";
@@ -29,7 +30,6 @@ function UserPage() {
 				const tid = window.location.pathname.replace("/user/", "");
 				if (tid == localStorage.getItem("count")) {
 					setIsMine(true);
-					console.log("mine");
 				}
 				const response = await fetch(`${serverDomain}users/${tid}`);
 				console.log(`${serverDomain}users/${tid}`);
@@ -40,7 +40,6 @@ function UserPage() {
 				//check for no posts
 				if (!jsonData[0]) {
 					console.log("no posts");
-
 					setIsNoPosts(true);
 				}
 
@@ -62,8 +61,8 @@ function UserPage() {
 				jsonData.forEach((d: any, i: number) => {
 					k += d.points;
 				});
-				console.log(k);
 				setKarma(k);
+				getFollowing(jsonData[0].following)
 			} catch (error) {
 				console.log(error);
 			}
@@ -73,6 +72,7 @@ function UserPage() {
 	// when the follow button is pressed
 	async function follow() {
 		setIsFollowed(true);
+		setFollowers(followers + 1)
 		const signedUid = localStorage.getItem("count");
 		const followedUid = data[0].user_id;
 		if (signedUid == followedUid) {
@@ -110,7 +110,24 @@ function UserPage() {
 			}
 		);
 	}
-	console.log(following);
+	function getFollowing(fol: any) {
+		console.log(fol);
+
+		if (followingList.length) return
+
+		JSON.parse(fol).forEach(async (f: Number) => {
+			// console.log(f)
+			// console.log(`${serverDomain}users/${f}`);
+			const newJsonData = await fetch(`${serverDomain}users/${f}`)
+			const newData = await newJsonData.json();
+
+			const newListUsername: string = newData[0].username;
+			followingList.push(newListUsername)
+			setFollowingList(followingList)
+		});
+		setFollowingList(followingList)
+		console.log(followingList)
+	}
 
 	return (
 		<div>
@@ -118,6 +135,17 @@ function UserPage() {
 			<Meta title="Swipechoose" />
 			<div className="content">
 				<p>{!data && "loading, something something our fault"}</p>
+				<div className="followingPeople">
+					<h1>Followers:</h1>
+					<div className="followingList">
+						{/* fix this asap */}
+						<div onClick={() => window.location.href = `/user/${JSON.parse(data[0].following)[0]}`} className="listUser">
+							<Image width={50} height={50} src="" alt="pfp" />
+							<h1>{followingList[0]}</h1>
+						</div>
+						<a className="seeMore">See more</a>
+					</div>
+				</div>
 				<div className="userInfo">
 					<img className="pfp" src={pfp} alt="" />
 					<div className="bigUsername">
@@ -170,6 +198,7 @@ function UserPage() {
 							);
 						})}
 				</div>
+
 			</div>
 		</div>
 	);
