@@ -322,14 +322,11 @@ button:hover {
 	margin: 0 0.2vw;
 }
 .listUser {
-	display: flex;
+	display: grid;
 	margin: 0.4vh 0;
 	opacity: 0.9;
-	border-radius: 10vw 5vw 5vw 10vw;
+	border-radius: 1vw;
 	background-color: var(--tri);
-}
-.listUser img {
-	border-radius: 2vw;
 }
 .listUser * {
 	cursor: pointer;
@@ -340,6 +337,9 @@ button:hover {
 	display: block;
 	text-align: center;
 	font-size: 1.5rem;
+}
+.smallFolUser {
+	/* width: 10%; */
 }
 .imgTitle {
 	position: fixed;

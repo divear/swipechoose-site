@@ -135,13 +135,19 @@ function UserPage() {
 			<Meta title="Swipechoose" />
 			<div className="content">
 				<p>{!data && "loading, something something our fault"}</p>
-				<div className="followingPeople">
+				<div className={followingList[0] ? "followingPeople" : "no"}>
 					<h1>Followers:</h1>
 					<div className="followingList">
 						{/* fix this asap */}
 						<div onClick={() => window.location.href = `/user/${JSON.parse(data[0].following)[0]}`} className="listUser">
-							<Image width={50} height={50} src="" alt="pfp" />
-							<h1>{followingList[0]}</h1>
+							{followingList[0] && followingList.map((n: string, i: number) => {
+								return (
+									<div key={i} className="smallFolUser">
+										<h1>{n}</h1>
+										<br />
+									</div>
+								)
+							})}
 						</div>
 						<a className="seeMore">See more</a>
 					</div>
