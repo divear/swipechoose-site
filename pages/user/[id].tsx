@@ -11,7 +11,6 @@ function UserPage() {
 	const [data, setData] = useState<any>();
 	const [username, setUsername] = useState("");
 	const [pfp, setPfp] = useState("");
-	const [email, setEmail] = useState("");
 	const [following, setFollowing] = useState("");
 	const [followers, setFollowers] = useState(0);
 	const [karma, setKarma] = useState(0);
@@ -54,7 +53,6 @@ function UserPage() {
 				}
 				setUsername(jsonData[0].username);
 				setPfp(jsonData[0].pfp);
-				setEmail(jsonData[0].email);
 				setFollowing(jsonData[0].following);
 				setFollowers(jsonData[0].followers);
 				let k = 0;
@@ -149,14 +147,13 @@ function UserPage() {
 								)
 							})}
 						</div>
-						<a className="seeMore">See more</a>
+						{/* <a className="seeMore">See more</a> */}
 					</div>
 				</div>
 				<div className="userInfo">
 					<img className="pfp" src={pfp} alt="" />
 					<div className="bigUsername">
 						<h1>{username}</h1>
-						<i>{email}</i>
 						<p className="">Karma: {karma}</p>
 						<p className="">Followers: {followers}</p>
 						<p>
