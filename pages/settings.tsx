@@ -53,7 +53,7 @@ function Settings() {
 					Show the &quot;Hi, I&apos;m new to Swipechoose!&quot;
 					posts
 				</div>
-				{/* <div className="sorting">
+				<div className="sorting">
 					<h3>Sort by:</h3>
 					<button disabled={!sort} onClick={() => setSort(!sort)}>
 						For you
@@ -62,7 +62,7 @@ function Settings() {
 					<button disabled={sort} onClick={() => setSort(!sort)}>
 						Following
 					</button>
-				</div> */}
+				</div>
 				<button className="secButt">Continue with these settings</button>
 			</div>
 		</div >
