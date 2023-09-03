@@ -46,34 +46,49 @@ function Signin() {
 			const Rpfp = user?.photoURL;
 			const Rusername = user?.displayName;
 			const Rfollow = "[]";
-			// const id = user?.uid;
-			console.log(user);
+			const id = user?.uid;
 
-			const userCountR = await fetch(`${serverDomain}users-number`);
-			const userCount = await userCountR.json();
-			console.log(userCount[0].count + 1);
-			localStorage.setItem("count", userCount[0].count + 1);
+			// console.log(Remail);
+
+			//check for duplicate users
+			const pastUsersResponse = await fetch(`${serverDomain}users-email/${Remail}`);
+			const pastUsersjsonData = await pastUsersResponse.json();
+			console.log(pastUsersjsonData[0].user_id);
+
+			// set the id as the previosly signed user id
+			console.log(pastUsersjsonData[0].user_id)
+			localStorage.setItem("count", pastUsersjsonData[0].user_id);
+
 
 			const arr = [Remail, Rusername, Rpfp, Rfollow];
-			const response = await fetch(`${serverDomain}users`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(arr),
-			});
-			const boilerPost = await fetch(`${serverDomain}posts`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify([
-					{ user_id: userCount[0].count + 1 },
-					{ title: "Hi, I'm new to Swipechoose!" },
-					{
-						imgLink:
-							"https://firebasestorage.googleapis.com/v0/b/picture-database.appspot.com/o/images%2FnewUser.png?alt=media",
-					},
-				]),
-			});
-			console.log(boilerPost);
+			if (pastUsersjsonData === "no users") {
+				console.log("USER DOESNT EXIST YET!!!!!!!!!!!§")
 
+				const userCountR = await fetch(`${serverDomain}users-number`);
+				const userCount = await userCountR.json();
+				console.log(userCount[0].count + 1);
+				localStorage.setItem("count", userCount[0].count + 1);
+
+				const response = await fetch(`${serverDomain}users`, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(arr),
+				});
+
+				const boilerPost = await fetch(`${serverDomain}posts`, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify([
+						{ user_id: userCount[0].count + 1 },
+						{ title: "Hi, I'm new to Swipechoose!" },
+						{
+							imgLink:
+								"https://firebasestorage.googleapis.com/v0/b/picture-database.appspot.com/o/images%2FnewUser.png?alt=media",
+						},
+					]),
+				});
+				console.log(boilerPost);
+			}
 			window.location.href = "/";
 		})();
 		localStorage.setItem("uid", user?.uid);
