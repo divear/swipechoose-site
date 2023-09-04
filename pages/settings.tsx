@@ -63,7 +63,7 @@ function Settings() {
 						Following
 					</button>
 				</div>
-				<button className="secButt">Continue with these settings</button>
+				<button onClick={() => window.location.href = "/"} className="secButt">Continue with these settings</button>
 			</div>
 		</div >
 	);

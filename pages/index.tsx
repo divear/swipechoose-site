@@ -39,17 +39,16 @@ export default function Home() {
 				const response = await fetch(`${serverDomain}posts`);
 				const jsonData = await response.json();
 				console.log(jsonData);
+				shuffle(jsonData)
 
 				//check if the user wants the welcome posts
 				if (localStorage.getItem("wantsWelcome") === "false") {
 					setData(
-						shuffle(
-							jsonData
-								.filter(
-									(d: any) =>
-										d.title != "Hi, I'm new to Swipechoose!"
-								)
-						)
+						jsonData
+							.filter(
+								(d: any) =>
+									d.title != "Hi, I'm new to Swipechoose!"
+							)
 					);
 					return;
 				}
