@@ -134,7 +134,7 @@ function UserPage() {
 			<div className="content">
 				<p>{!data && "loading, something something our fault"}</p>
 				<div className={followingList[0] ? "followingPeople" : "no"}>
-					<h1>Followers:</h1>
+					<h1 className="followersText">Followers:</h1>
 					<div className="followingList">
 						{/* fix this asap */}
 						<div onClick={() => window.location.href = `/user/${JSON.parse(data[0].following)[0]}`} className="listUser">

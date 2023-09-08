@@ -338,9 +338,6 @@ button:hover {
 	text-align: center;
 	font-size: 1.5rem;
 }
-.smallFolUser {
-	/* width: 10%; */
-}
 .imgTitle {
 	position: fixed;
 	bottom: 0%;
@@ -626,6 +623,30 @@ button:hover {
 	.checkbox {
 		scale: 2;
 		margin: 0 4vw;
+	}
+	.userInfo {
+		background-color: var(--secbg);
+		border-radius: 1vw;
+		margin: 0 0 0 25vw;
+		display: flex;
+		width: 30%;
+	}
+	.follow {
+		float: right;
+		padding: 0.5vw;
+		height: 30%;
+		width: 250% !important;
+	}
+	.follow * {
+		margin: 8vw;
+	}
+	.followingPeople {
+		position: absolute;
+		right: 5%;
+		top: 7%;
+	}
+	.followersText {
+		display: none;
 	}
 }
 
