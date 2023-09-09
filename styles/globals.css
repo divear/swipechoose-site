@@ -664,7 +664,7 @@ button:hover {
 	}
 }
 
-@media only screen and (max-height: 950px) {
+@media only screen and (max-height: 950px) and (max-width: 830px) {
 	.pickImage {
 		margin: 5vh 0 0 0 !important;
 		border-radius: 1vw;
