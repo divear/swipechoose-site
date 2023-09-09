@@ -663,3 +663,15 @@ button:hover {
 		font-size: 2.5rem;
 	}
 }
+
+@media only screen and (max-height: 950px) {
+	.pickImage {
+		margin: 5vh 0 0 0 !important;
+		border-radius: 1vw;
+		position: fixed;
+		left: 20%;
+		width: 70%;
+		max-height: 70%;
+		margin: 0 2vw;
+	}
+}
